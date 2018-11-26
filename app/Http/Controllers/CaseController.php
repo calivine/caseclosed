@@ -49,7 +49,7 @@ class CaseController extends Controller
 
     public function addIncident() {
         $incident = new Incident();
-        $incident->victim_id = 3;
+        $incident->victim_id = 1;
         $incident->perpetrator_id = 1;
         $incident->date = '1986-08-04';
         $incident->year = 1986;
