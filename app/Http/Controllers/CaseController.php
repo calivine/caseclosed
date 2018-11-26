@@ -36,11 +36,11 @@ class CaseController extends Controller
         # Instantiate a new Victim model
         $victim = new Victim();
 
-        $victim->first_name = 'Christy';
-        $victim->last_name = 'Mirack';
-        #$victim->middle_name = '';
-        #$victim->date_of_birth = '1973';
-        $victim->age = 25;
+        $victim->first_name = 'Jennifer';
+        $victim->last_name = 'Bastian';
+        $victim->middle_name = 'Marie';
+        $victim->date_of_birth = '1973-04-15';
+        $victim->age = 13;
         $victim->gender = 'F';
 
         $victim->save();
