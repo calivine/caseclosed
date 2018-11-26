@@ -53,7 +53,7 @@ class CaseController extends Controller
         $incident->perpetrator_id = 1;
         $incident->date = '1986-08-04';
         $incident->year = 1986;
-        $incident->details = 'Jennifer’s body was found 28 days after she went missing by a group of joggers near the Five Mile Drive. She had been raped and strangled. ';
+        $incident->detail = 'Jennifer’s body was found 28 days after she went missing by a group of joggers near the Five Mile Drive. She had been raped and strangled. ';
         $incident->url = 'https://www.thenewstribune.com/news/local/crime/article211133344.html';
 
         $incident->save();
