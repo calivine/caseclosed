@@ -25,18 +25,11 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-
-Route::get('/add', 'CaseController@addVictim');
-
-Route::get('/add-incident', 'CaseController@addIncident');
-
-Route::get('/add-perp', 'CaseController@addPerp');
-
-Route::get('/update', 'CaseController@updateVictim');
-
 Route::get('/profile/{title}', 'CaseController@show');
 
 Route::get('/cases', 'CaseController@display');
 
-Route::get('/', 'CaseController@index');
+Route::get('/home', 'CaseController@index');
+
+Route::redirect('/', '/home');
 

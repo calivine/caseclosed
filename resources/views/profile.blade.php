@@ -3,20 +3,24 @@
 @section('content')
 
     <h1>{{ config('app.name') }}</h1>
-    <p>Name: {{$name['first_name'] }} {{ $name['middle_name'] }}  {{ $name['last_name'] }}<br>
-        Gender: {{ $name['gender'] }}<br>
-        Age at time of disappearance: {{ $name['age'] }}
-    </p>
-    <p>
-        Perpetrator: {{ $name['perp_first_name'] }} {{ $name['perp_last_name'] }}
-    </p>
-    <p>
-        Arrested On: {{ $name['arrest_date'] }}
-    </p>
-    <p>
-        {{ $name['detail'] }}
-    </p>
-    <a href='{{ $name['url'] }}'>Source</a>
+    <section>
+        <p>Name: {{ $victim->first_name  }} {{ $victim->middle_name }}  {{ $victim->last_name }}<br>
+            Gender: {{ $victim->gender }}<br>
+            Age at time of disappearance: {{ $victim->age }}
+        </p>
+        <p>
+            {{ $victim->detail }}
+        </p>
+    </section>
+    <section>
+        <p>
+            Perpetrator: {{ $perp->first_name }} {{ $perp->last_name }}
+        </p>
+        <p>
+            Arrested On: {{ $perp->arrest_date }}
+        </p>
+    </section>
+    <a href='{{ $victim->url }}'>Source</a>
     <a href='/cases'>Return</a>
 
 

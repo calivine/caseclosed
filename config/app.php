@@ -3,7 +3,7 @@
 return [
 
     'nav' => [
-        '/' => 'Home',
+        '/home' => 'Home',
         '/cases' => 'Cases'
     ],
 
