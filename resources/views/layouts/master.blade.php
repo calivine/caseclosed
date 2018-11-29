@@ -11,8 +11,14 @@
     @stack('head')
 </head>
 <body>
-<header>
-    @include('modules.nav')
+<header class='header-primary'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-3-3 remove-gutter-xs'>
+                @include('modules.nav')
+            </div>
+        </div>
+    </div>
 </header>
 
 <section>
