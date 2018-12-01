@@ -3,8 +3,7 @@
 @section('content')
     <div class='container'>
         <div class='row'>
-            <div class='col-1-3'>
-                <p>Under Construction</p>
+            <div class='col-1-4'>
                 @include('modules.victim-card')
             </div>
         </div>

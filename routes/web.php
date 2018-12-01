@@ -25,6 +25,8 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
+Route::view('/about', 'about');
+
 Route::get('/profile/{title}', 'CaseController@show');
 
 Route::get('/cases', 'CaseController@display');

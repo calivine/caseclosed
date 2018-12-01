@@ -15,9 +15,19 @@ class CaseController extends Controller
      */
     public function index() {
         $profile_id = rand(9, 19);
-        $victim = Victim::where('id', '=', $profile_id)->get();
+        # $victim = Victim::where('id', '=', $profile_id)->get();
+        $victim = DB::table('victims')
+            ->join('incidents', 'victims.id', '=', 'incidents.victim_id')
+            ->select('victims.*', 'incidents.detail', 'incidents.url')
+            ->where('victims.id', '=', $profile_id)
+            ->first();
 
-        return view('welcome')->with(['victims' => $victim]);
+        $perp = DB::table('perpetrators')
+            ->select('first_name', 'last_name', 'year_of_birth', 'arrest_date')
+            ->where('victim_id', '=', $victim->id)
+            ->first();
+        return view('welcome')->with(['victim' => $victim,
+            'perp' => $perp]);
     }
 
     /*
@@ -28,7 +38,7 @@ class CaseController extends Controller
         $victim = Victim::orderBy('last_name')->get();
         $victims = $victim->toArray();
 
-        return view('cases')->with(['victims' => $victims]);
+        return view('victims.cases')->with(['victims' => $victims]);
     }
 
     /*
@@ -47,12 +57,8 @@ class CaseController extends Controller
             ->where('victim_id', '=', $victim->id)
             ->first();
 
-        return view('profile')->with(['victim' => $victim,
+        return view('victims.profile')->with(['victim' => $victim,
                 'perp' => $perp]
         );
-
     }
-
-
-
 }

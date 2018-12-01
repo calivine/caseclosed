@@ -4,6 +4,7 @@ return [
 
     'nav' => [
         '/home' => 'Home',
+        '/about' => 'About',
         '/cases' => 'Cases'
     ],
 

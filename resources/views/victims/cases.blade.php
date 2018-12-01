@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>{{ config('app.name') }}</h1>
     <div class='container'>
         <div class='row'>
             <div class='col-1-3'>

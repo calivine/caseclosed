@@ -21,12 +21,25 @@
     </div>
 </header>
 
+<h1>{{ config('app.name') }}</h1>
+
 <section>
     @yield('content')
 </section>
 
 <footer>
-    &copy; {{ date('Y') }}
+    <div class='container'>
+        <div class='row'>
+            <div class='col-1-2'>
+            </div>
+            <div class='col-1-6'>
+                &copy; {{ date('Y') }}
+            </div>
+            <div class='col-1-6'>
+                @include('modules.return')
+            </div>
+        </div>
+    </div>
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
