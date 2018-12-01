@@ -14,7 +14,10 @@ class CaseController extends Controller
      *  Case Closed home landing page
      */
     public function index() {
-        return view('welcome');
+        $profile_id = rand(9, 19);
+        $victim = Victim::where('id', '=', $profile_id)->get();
+
+        return view('welcome')->with(['victims' => $victim]);
     }
 
     /*
@@ -22,7 +25,7 @@ class CaseController extends Controller
      *  in the database
      */
     public function display() {
-        $victim = Victim::all();
+        $victim = Victim::orderBy('last_name')->get();
         $victims = $victim->toArray();
 
         return view('cases')->with(['victims' => $victims]);

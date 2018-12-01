@@ -29,14 +29,16 @@ body {
 
 h1, h2, h3 {
     font-weight: bold;
+    text-align: center;
 }
 
 a {
+    color: aliceblue;
     font-weight: bold;
 }
 
 a:visited {
-    color: #2779bd;
+    color: #87a4bd;
 }
 
 a:hover {
