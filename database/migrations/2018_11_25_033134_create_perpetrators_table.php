@@ -22,7 +22,6 @@ class CreatePerpetratorsTable extends Migration
             $table->year('year_of_birth')->nullable();
             $table->date('arrest_date')->nullable();
             $table->string('detail')->nullable();
-
         });
     }
 

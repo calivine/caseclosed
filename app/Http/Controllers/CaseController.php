@@ -14,7 +14,7 @@ class CaseController extends Controller
      *  Case Closed home landing page
      */
     public function index() {
-        $profile_id = rand(9, 19);
+        $profile_id = rand(1, 11);
         # $victim = Victim::where('id', '=', $profile_id)->get();
         $victim = DB::table('victims')
             ->join('incidents', 'victims.id', '=', 'incidents.victim_id')
