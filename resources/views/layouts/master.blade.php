@@ -25,18 +25,7 @@
 </main>
 
 <footer>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-1-2'>
-            </div>
-            <div class='col-1-6'>
-                &copy; {{ date('Y') }}
-            </div>
-            <div class='col-1-6'>
-                @include('modules.return')
-            </div>
-        </div>
-    </div>
+    &copy; {{ date('Y') }}
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
