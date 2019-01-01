@@ -23,10 +23,15 @@ class CreateVictimsTable extends Migration
 
             # Rest of the table fields.
             $table->string('first_name');
+            $table->string('middle_name')->default('');
             $table->string('last_name');
             $table->date('date_of_birth')->nullable();
             $table->integer('age');
             $table->char('gender');
+            $table->string('cause_of_death');
+            $table->integer('perpetrator_id')->unsigned();
+
+            $table->foreign('perpetrator_id')->references('id')->on('perpetrators');
         });
     }
 

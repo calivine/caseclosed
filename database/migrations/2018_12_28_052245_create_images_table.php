@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIncidentsTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateIncidentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('incidents', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('victim_id');
-            $table->integer('perpetrator_id');
-            $table->date('date')->nullable();
-            $table->year('year')->nullable();
-            $table->string('detail')->nullable();
-            $table->string('url')->nullable();
+            $table->string('victim')->nullable();
+            $table->string('perpetrator')->nullable();
+            $table->string('other1')->nullable();
+
+            $table->integer('victim_id')->unsigned();
+
+            $table->foreign('victim_id')->references('id')->on('victims');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateIncidentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incidents');
+        Schema::dropIfExists('images');
     }
 }

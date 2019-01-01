@@ -4,8 +4,7 @@
     <div class='container'>
         <div class='row'>
             <div class='col-1-3'>
-                <p>Under Construction</p>
-                @include('modules.victim-card')
+                @include('victims.home-profile')
             </div>
         </div>
     </div>

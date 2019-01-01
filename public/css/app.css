@@ -5,6 +5,8 @@ Reset Styles
 ***************************/
 @import 'normalize.css';
 
+@import 'base.css';
+
 /* Change all elements to use border-box */
 html {
     box-sizing: border-box;
@@ -20,18 +22,6 @@ html {
 Base Styles
 ****************************
 ***************************/
-body {
-    background-color: #262626;
-    color: aliceblue;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: normal;
-}
-
-h1, h2, h3 {
-    font-weight: bold;
-    text-align: center;
-}
-
 a {
     color: aliceblue;
     font-weight: bold;
@@ -45,82 +35,40 @@ a:hover {
     text-decoration: underline;
 }
 
-/***************************
-****************************
-Layout Styles
-****************************
-***************************/
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1170px;
+aside {
+    float: right;
+    position: relative;
 }
 
-.row {
-    margin-right: -15px;
-    margin-left: -15px;
-    min-height: 1px;
+body {
+    background-color: #262626;
+    color: aliceblue;
+    font-family: 'DINNextLTProLightCondensed', Helvetica, sans-serif;
+    font-weight: normal;
 }
 
-/* https://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/ */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-[class*='col-'] {
+footer {
+    text-align: center;
+    /* sticky footer */
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
 }
 
-/* Media Query excludes extra small devices and includes small and above */
-@media (min-width: 48em) {
-    [class*='col-'] {
-        float: left;
-    }
-    /* Column Third */
-    .col-1-3 {
-        width: 33.3333%;
-    }
-    /* Column Two Thirds */
-    .col-2-3 {
-        width: 66.6666%;
-    }
-    /* Column Full */
-    .col-3-3 {
-        width: 100%;
-    }
-    /* Column One Half */
-    .col-1-2 {
-        width: 50%;
-    }
-    /* Column One Quarter */
-    .col-1-4 {
-        width: 25%;
-    }
-    /* Column One Sixth */
-    .col-1-6 {
-        width: 16.6666%;
-    }
+h1, h2, h3 {
+    font-weight: bold;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
 }
 
 
-@media (min-width: 48em) {
-    .pull-right-sm {
-        float:right;
-    }
-}
 
-@media (max-width: 47.9375em) {
-    .remove-gutter-xs {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 /***************************
 ****************************
 Module Styles
@@ -161,6 +109,7 @@ Module Styles
 
 .header-primary {
     background-color: #323232;
+    height: 80px;
     text-align: center;
     padding-top: 18px;
     padding-bottom: 18px;
@@ -172,7 +121,16 @@ ul li {
     list-style-type: none;
 }
 
+.case-list {
+    font-size: 1.75em;
+}
+
 /* Nav Modules */
+
+nav {
+    display: block;
+
+}
 
 nav ul li {
     display: inline-block;

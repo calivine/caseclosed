@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Incident;
 use App\Perpetrator;
 use App\Victim;
+use App\Image;
 
 class CaseController extends Controller
 {
@@ -14,20 +15,11 @@ class CaseController extends Controller
      *  Case Closed home landing page
      */
     public function index() {
-        $profile_id = rand(1, 11);
-        # $victim = Victim::where('id', '=', $profile_id)->get();
-        $victim = DB::table('victims')
-            ->join('incidents', 'victims.id', '=', 'incidents.victim_id')
-            ->select('victims.*', 'incidents.detail', 'incidents.url')
-            ->where('victims.id', '=', $profile_id)
-            ->first();
+        $profile_id = rand(1,3);
 
-        $perp = DB::table('perpetrators')
-            ->select('first_name', 'last_name', 'year_of_birth', 'arrest_date')
-            ->where('victim_id', '=', $victim->id)
-            ->first();
-        return view('welcome')->with(['victim' => $victim,
-            'perp' => $perp]);
+        $perpetrator = Perpetrator::find($profile_id);
+
+        return view('welcome')->with(['perpetrator' => $perpetrator]);
     }
 
     /*
@@ -46,19 +38,18 @@ class CaseController extends Controller
      *  */
     public function show($name) {
 
-        $victim = DB::table('victims')
-            ->join('incidents', 'victims.id', '=', 'incidents.victim_id')
-            ->select('victims.*', 'incidents.detail', 'incidents.url')
-            ->where('victims.last_name', '=', $name)
-            ->first();
+        $victim = Victim::where('last_name', '=', $name)->with('image')->first();
 
-        $perp = DB::table('perpetrators')
-            ->select('first_name', 'last_name', 'year_of_birth', 'arrest_date')
-            ->where('victim_id', '=', $victim->id)
-            ->first();
+        // $images = Image::where('victim_id', $victim->id)->whereNotNull('victim')->first();
 
-        return view('victims.profile')->with(['victim' => $victim,
-                'perp' => $perp]
-        );
+        $image = $victim->image; // ->only(['victim','perpetrator','other1']);
+
+        $sources = $victim->source->only(['url1','url2','url3','url4','url5']);
+
+        return view('victims.profile')->with([
+            'victim' => $victim,
+            'image' => $image ?? null,
+            'sources' => $sources
+        ]);
     }
 }

@@ -15,28 +15,22 @@ class PerpetratorsTableSeeder extends Seeder
     public function run()
     {
         $perps = [
-            ['Norman','Whitehorn',1,null,null,null],
-            ['Geovanni','Borjas',2,null,null,null],
-            ['Michael','Sumpter',3,null,null,null],
-            ['John','Getreu',4,1944,'2018-11-20',null],
-            ['Johnnie','Miller',5,null,null,null],
-            ['Stephen','Crawford',6,1946,null,'Suicide upon confrontation.'],
-            ['Joseph','DeAngelo',7,1945,'2018-04-24','Golden State Killer'],
-            ['Ricky','Harnish',8,1955,'2008-02-01',null],
-            ['Kenneth','Matthews',9,null,'2018-04-24',null],
-            ['Joseph','DeAngelo',10,1945,'2018-04-24','Golden State Killer'],
-            ['Joseph','DeAngelo',11,1945,'2018-04-24','Golden State Killer']
+            ['Michael','Eugene','Sumpter','1947-09-26','Died of cancer while serving a 15-to-20-year sentence for a different crime — the 1975 rape of a 21-year-old woman in her Beacon Street home.',true,'2001-07-12','2001-07-12'],
+            ['John','Arthur','Getreu','1944-08-26','',false,'2018-11-20','2018-11-20'],
+            ['Stephen','Blake','Crawford','1946-02-11','Suicide upon confrontation with police.',true,'2018-06-28','2018-06-28']
         ];
 
         foreach ($perps as $key => $perpData) {
             $perp = new Perpetrator;
 
             $perp->first_name = $perpData[0];
-            $perp->last_name = $perpData[1];
-            $perp->victim_id = $perpData[2];
-            $perp->year_of_birth = $perpData[3];
-            $perp->arrest_date = $perpData[4];
-            $perp->detail = $perpData[5];
+            $perp->middle_name = $perpData[1];
+            $perp->last_name = $perpData[2];
+            $perp->date_of_birth = $perpData[3];
+            $perp->description = $perpData[4];
+            $perp->criminal_record = $perpData[5];
+            $perp->arrest_date = $perpData[6];
+            $perp->date_of_death = $perpData[7];
 
             $perp->save();
         }

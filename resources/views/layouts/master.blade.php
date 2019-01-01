@@ -12,20 +12,17 @@
 </head>
 <body>
 <header class='header-primary'>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-3-3 remove-gutter-xs'>
-                @include('modules.nav')
-            </div>
-        </div>
-    </div>
+    @include('modules.nav')
 </header>
 
-<h1>{{ config('app.name') }}</h1>
+<h1>
+    {{ config('app.name') }}
+</h1>
 
-<section>
+
+<main class='container'>
     @yield('content')
-</section>
+</main>
 
 <footer>
     <div class='container'>

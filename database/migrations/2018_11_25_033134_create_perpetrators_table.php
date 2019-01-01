@@ -17,11 +17,13 @@ class CreatePerpetratorsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('first_name');
+            $table->string('middle_name')->default('');
             $table->string('last_name');
-            $table->integer('victim_id');
-            $table->year('year_of_birth')->nullable();
-            $table->date('arrest_date')->nullable();
-            $table->string('detail')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('criminal_record')->default(false);
+            $table->date('arrest_date');
+            $table->date('date_of_death')->nullable();
         });
     }
 
