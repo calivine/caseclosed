@@ -1,9 +1,25 @@
+
+/***************************
+****************************
+Base Styles
+****************************
+***************************/
+
+/* Change all elements to use border-box */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 /***************************
 ****************************
 Layout Styles
 ****************************
 ***************************/
 .container {
+    height: 980px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;

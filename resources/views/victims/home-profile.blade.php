@@ -1,6 +1,7 @@
-<section>
+<section id='home-profile'>
+    <h3>Perpetrator</h3>
     <p>
-        Perpetrator: {{ $perpetrator->first_name }} {{ $perpetrator->middle_name }} {{ $perpetrator->last_name }}
+        {{ $perpetrator->first_name }} {{ $perpetrator->middle_name }} {{ $perpetrator->last_name }}
     </p>
     <ul>
         <li>
@@ -10,9 +11,7 @@
             Date of Arrest, Death, or Other Outcome: {{ $perpetrator->arrest_date->format('j F, Y') }}
         </li>
     </ul>
-    <h4>
-        Victims:
-    </h4>
+    <h3>Victims:</h3>
     @foreach($perpetrator->victims as $victim)
         <p>
             {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}

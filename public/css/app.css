@@ -7,13 +7,7 @@ Reset Styles
 
 @import 'base.css';
 
-/* Change all elements to use border-box */
-html {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+
 
 
 
@@ -109,6 +103,7 @@ Module Styles
 
 .header-primary {
     background-color: #323232;
+    font-size: .8em;
     height: 80px;
     text-align: center;
     padding-top: 18px;
@@ -142,6 +137,13 @@ nav ul li {
 Theme Styles
 ****************************
 ***************************/
+.welcome-background {
+    background-image: url("https://c.o0bg.com/rf/image_371w/Boston/2011-2020/2018/11/20/BostonGlobe.com/Spotlight/Images/IMG_1156.jpg");
+}
 
+#home-profile {
+    color: #32E219;
+
+}
 
 

@@ -5,7 +5,9 @@
     <meta charset='utf-8'>
 
     {{-- CSS global to every page can be loaded here --}}
-    <link href='/css/app.css' rel='stylesheet'>
+    {{-- <link href='/css/app.css' rel='stylesheet'> --}}
+
+    <link href='/css/app-style.css' rel='stylesheet'>
 
     {{-- CSS specific to a given page/child view can be included via a stack --}}
     @stack('head')
@@ -19,8 +21,11 @@
     {{ config('app.name') }}
 </h1>
 
+<h2>
+    Solved Murder and Missing Persons Archive
+</h2>
 
-<main class='container'>
+<main>
     @yield('content')
 </main>
 
