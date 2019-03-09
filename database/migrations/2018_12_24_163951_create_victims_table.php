@@ -26,8 +26,8 @@ class CreateVictimsTable extends Migration
             $table->string('middle_name')->default('');
             $table->string('last_name');
             $table->date('date_of_birth')->nullable();
-            $table->integer('age');
-            $table->char('gender');
+            $table->integer('age')->nullable();
+            $table->char('gender')->nullable();
             $table->string('cause_of_death');
             $table->integer('perpetrator_id')->unsigned();
 

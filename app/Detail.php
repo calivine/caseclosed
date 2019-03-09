@@ -17,7 +17,7 @@ class Detail extends Model
         return $this->hasOne('App\Victim');
     } */
 
-    public function victims()
+    public function victim()
     {
         return $this->belongsTo('App\Victim');
     }

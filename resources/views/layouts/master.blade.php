@@ -5,14 +5,20 @@
     <meta charset='utf-8'>
 
     {{-- CSS global to every page can be loaded here --}}
-    {{-- <link href='/css/app.css' rel='stylesheet'> --}}
+    <link href='/css/app.css' rel='stylesheet'>
 
-    <link href='/css/app-style.css' rel='stylesheet'>
+    <link href='{{ '/css/app-style.css' }}' rel='stylesheet'>
 
     {{-- CSS specific to a given page/child view can be included via a stack --}}
     @stack('head')
 </head>
 <body>
+@if(session('alert'))
+    <div class='alert-success'>
+        {{ session('alert') }}
+    </div>
+@endif
+
 <header class='header-primary'>
     @include('modules.nav')
 </header>
@@ -26,11 +32,14 @@
 </h2>
 
 <main>
-    @yield('content')
+    <div class='container'>
+        @yield('content')
+    </div>
 </main>
 
 <footer>
     &copy; {{ date('Y') }}
+    <a href='/login'>Admin Login</a>
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}

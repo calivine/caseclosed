@@ -11,19 +11,10 @@ class Victim extends Model
         return $this->belongsTo('App\Perpetrator');
     }
 
-    public function image()
-    {
-        return $this->hasOne('App\Image');
-    }
 
     public function detail()
     {
         return $this->hasOne('App\Detail');
-    }
-
-    public function source()
-    {
-        return $this->hasOne('App\Source');
     }
 
     protected $dates = [

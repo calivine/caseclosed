@@ -23,9 +23,11 @@ class CreateSourcesTable extends Migration
             $table->string('url4')->nullable();
             $table->string('url5')->nullable();
 
-            $table->integer('victim_id')->unsigned();
+            // $table->integer('victim_id')->unsigned()->nullable();
+            $table->integer('perpetrator_id')->unsigned();
 
-            $table->foreign('victim_id')->references('id')->on('victims');
+            // $table->foreign('victim_id')->references('id')->on('victims');
+            $table->foreign('perpetrator_id')->references('id')->on('perpetrators');
         });
     }
 

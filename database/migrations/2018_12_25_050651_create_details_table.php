@@ -16,9 +16,9 @@ class CreateDetailsTable extends Migration
         Schema::create('details', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->dateTime('incident_date');
-            $table->string('location');
-            $table->text('description');
+            $table->dateTime('incident_date')->nullable();
+            $table->string('location')->nullable();
+            $table->text('description')->nullable();
 
             $table->integer('victim_id')->unsigned();
 

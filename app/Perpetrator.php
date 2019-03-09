@@ -10,11 +10,22 @@ class Perpetrator extends Model
     {
         return $this->hasMany('App\Victim');
     }
-/*
+
+    public function source()
+    {
+        return $this->hasOne('App\Source');
+    }
+    /*
     public function details()
     {
         return $this->belongsTo('App\Detail');
-    } */
+    }
+    */
+
+    public function image()
+    {
+        return $this->hasOne('App\Image');
+    }
 
     protected $dates = [
         'date_of_birth',

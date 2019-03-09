@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class='container welcome-background'>
+    <div class='welcome-background'>
         <div class='row'>
             <div class='col-1-3'>
                 @include('victims.home-profile')

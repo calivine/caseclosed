@@ -26,7 +26,7 @@ class ImagesTableSeeder extends Seeder
             $image->perpetrator = $imageURL[1];
             $image->other1 = $imageURL[2];
 
-            $image->victim_id = $imageURL[3];
+            $image->perpetrator_id = $imageURL[3];
 
             $image->save();
         }

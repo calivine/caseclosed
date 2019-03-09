@@ -20,9 +20,9 @@ class CreateImagesTable extends Migration
             $table->string('perpetrator')->nullable();
             $table->string('other1')->nullable();
 
-            $table->integer('victim_id')->unsigned();
+            $table->integer('perpetrator_id')->unsigned();
 
-            $table->foreign('victim_id')->references('id')->on('victims');
+            $table->foreign('perpetrator_id')->references('id')->on('perpetrators');
         });
     }
 
