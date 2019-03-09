@@ -285,13 +285,14 @@ class CaseController extends Controller
     public function processImages(Request $request, $id)
     {
         $request->validate([
-            'victim' => 'required',
-            'perpetrator' => 'required'
+            'victim' => 'required'
         ]);
         $perpetrator = Perpetrator::find($id);
         $image = new Image;
         $image->victim = $request->input('victim');
-        $image->perpetrator = $request->input('perpetrator');
+        if ($request->has('perpetrator')) {
+            $image->perpetrator = $request->input('perpetrator');
+        }
         if ($request->has('other')) {
             $image->other1 = $request->input('other');
         }
