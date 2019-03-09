@@ -165,4 +165,14 @@ Theme Styles
 
 } */
 
+/* Alert Styles */
+.alert-error {
+    background-color: #e3342f;
+    color: #FFFFFF;
+}
+
+.alert-success {
+    background-color: deepskyblue;
+}
+
 

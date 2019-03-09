@@ -22,7 +22,7 @@ class CreatePerpetratorsTable extends Migration
             $table->date('date_of_birth')->nullable();
             $table->text('description')->nullable();
             $table->boolean('criminal_record')->default(false);
-            $table->date('arrest_date');
+            $table->date('arrest_date')->nullable();
             $table->date('date_of_death')->nullable();
         });
     }

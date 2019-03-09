@@ -80,8 +80,7 @@ class CaseController extends Controller
     {
         # Validate user input
         $request->validate([
-            'perp_name' => 'required',
-            'perp_arrest' => 'required'
+            'perp_name' => 'required'
         ]);
 
         $perpetrator = new Perpetrator();
@@ -93,7 +92,9 @@ class CaseController extends Controller
         } else {
             $perpetrator->last_name = $name[1];
         }
-        $perpetrator->arrest_date = $request->input('perp_arrest');
+        if ($request->has('perp_arrest')) {
+            $perpetrator->arrest_date = $request->input('perp_arrest');
+        }
         if ($request->has('perp_dob')) {
             $perpetrator->date_of_birth = $request->input('perp_dob');
         }
