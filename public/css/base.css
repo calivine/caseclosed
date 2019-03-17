@@ -19,7 +19,7 @@ Layout Styles
 ****************************
 ***************************/
 .container {
-    height: 980px;
+    height: 720px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -80,7 +80,6 @@ Layout Styles
         width: 75%;
     }
 }
-
 
 @media (min-width: 48em) {
     .pull-right-sm {

@@ -136,7 +136,14 @@ class CaseController extends Controller
             'source1' => 'required'
         ]);
         $perpetrator = Perpetrator::find($id);
+
+        $source = Source::where('perpetrator_id', '=', $perpetrator->id);
+        dump($source->url1);
+        die();
         $source = new Source;
+
+        # Get size of request object - how many items did it return
+        # If
 
         $source->url1 = $request->input('source1');
         if ($request->has('source2')) {

@@ -50,7 +50,7 @@
 
 <footer>
     &copy; {{ date('Y') }}
-    <a href='/login'>Admin Login</a>
+    <a href='/login'>Login</a>
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
