@@ -49,9 +49,9 @@
 </main>
 
 <footer>
-    &copy; {{ date('Y') }}
     <a href='{{ "*" }}'>Contact</a>
     <a href='{{ '/login' }}'>Login</a>
+    &copy; {{ date('Y') }}
     A Beyond The Looking Glass Project
 </footer>
 
