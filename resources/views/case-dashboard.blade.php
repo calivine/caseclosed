@@ -6,8 +6,16 @@
         <h2>Welcome</h2>
     </div>
     <div class='row'>
-        <a href='{{ '/add-source/' . $perpetrator->id }}'>Add Sources</a>
-        <a href='{{ '/add-victim/' . $perpetrator->id }}'>Add Victim</a>
-        <a href='{{ '/add-images/' . $perpetrator->id }}'>Add Images</a>
+        <ul>
+            <li>
+                <a href='{{ '/add-source/' . $perpetrator->id }}'>Add Sources</a>
+            </li>
+            <li>
+                <a href='{{ '/add-victim/' . $perpetrator->id }}'>Add Victim</a>
+            </li>
+            <li>
+                <a href='{{ '/add-images/' . $perpetrator->id }}'>Add Images</a>
+            </li>
+        </ul>
     </div>
 @endsection

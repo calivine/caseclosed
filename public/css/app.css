@@ -50,7 +50,7 @@ form {
 }
 
 footer {
-    font-size: .5em;
+    font-size: .75em;
     text-align: center;
     /* sticky footer
     position: absolute;
@@ -62,7 +62,7 @@ footer {
 
 h1, h2, h3 {
     font-weight: bold;
-    margin: 12px;
+    margin: 0px;
     text-align: center;
 }
 

@@ -73,7 +73,7 @@
                     @foreach($sources as $url)
                         @if($url != null)
                             <li>
-                                <a href='{{ $url }}'>
+                                <a href='{{ $url }}' target='_blank'>
                                     Source(s)
                                 </a>
                             </li>

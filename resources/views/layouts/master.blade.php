@@ -5,7 +5,7 @@
     <meta charset='utf-8'>
 
     {{-- CSS global to every page can be loaded here --}}
-    <link href='/css/app.css' rel='stylesheet'>
+    <link href='{{ '/css/app.css' }}' rel='stylesheet'>
 
     <link href='{{ '/css/app-style.css' }}' rel='stylesheet'>
 
@@ -50,11 +50,13 @@
 
 <footer>
     &copy; {{ date('Y') }}
-    <a href='/login'>Login</a>
+    <a href='{{ "*" }}'>Contact</a>
+    <a href='{{ '/login' }}'>Login</a>
+    A Beyond The Looking Glass Project
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+<script src='{{ 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' }}'
         integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa'
         crossorigin='anonymous'></script>
 
