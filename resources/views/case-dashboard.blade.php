@@ -17,5 +17,8 @@
                 <a href='{{ '/add-images/' . $perpetrator->id }}'>Add Images</a>
             </li>
         </ul>
+        @foreach($perpetrator->victims as $victim)
+            <a href='{{ '/update-victim/' . $victim->id }}'>{{ $victim->first_name }} {{ $victim->last_name }}</a>
+        @endforeach
     </div>
 @endsection

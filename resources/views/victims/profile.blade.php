@@ -74,7 +74,7 @@
                         @if($url != null)
                             <li>
                                 <a href='{{ $url }}' target='_blank'>
-                                    Source(s)
+                                    {{ $url }}
                                 </a>
                             </li>
                         @endif

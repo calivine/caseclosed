@@ -57,6 +57,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/add-images/{id}', 'CaseController@addImages');
     Route::post('/images/{id}', 'CaseController@processImages');
 
+    Route::get('/update-victim/{id}', 'CaseController@updateVictim');
+    Route::post('/process-update-victim/{id}', 'CaseController@processUpdateVictim');
+
 
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');
 });

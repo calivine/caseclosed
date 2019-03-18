@@ -312,6 +312,58 @@ class CaseController extends Controller
 
     }
 
+    /*
+     * GET
+     * /update-victim/{id}
+     * Update Victim info
+     */
+    public function updateVictim($id)
+    {
+        $victim = Victim::find($id);
+        return view('update.victim')->with([
+            'victim' => $victim
+        ]);
+    }
+
+    /*
+     * POST
+     * /process-update-victim/{id}
+     * Process the input for updating victim information
+     */
+    public function processUpdateVictim(Request $request, $id)
+    {
+        $victim = Victim::find($id);
+        if ($request->has('victim_name')) {
+            $name = explode(" ", $request->input('victim_name'));
+            $victim->first_name = $name[0];
+            if (count($name) > 2) {
+                $victim->middle_name = $name[1];
+                $victim->last_name = $name[2];
+            } else {
+                $victim->last_name = $name[1];
+            }
+        }
+        if ($request->has('dob')) {
+            $victim->date_of_birth = $request->input('dob');
+        }
+        if ($request->has('incident_date')) {
+            $victim->detail->incident_date = $request->input('incident_date');
+        }
+        if ($request->has('details')) {
+            $victim->detail->description = $request->input('details');
+        }
+        if ($request->has('location')) {
+            $victim->detail->location = $request->input('location');
+        }
+        $victim->save();
+        $victim->detail->save();
+        return redirect()->route('caseDash', ['id' => $victim->perpetrator->id])->with([
+            'alert' => 'Victim Updated'
+        ]);
+
+
+    }
+
 
     /*
      * $perpetrators = Perpetrator::all();
