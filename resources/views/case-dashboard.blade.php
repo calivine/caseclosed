@@ -6,7 +6,7 @@
         <h2>Welcome</h2>
     </div>
     <div class='row'>
-        <div class='col-1-2'>
+        <div class='col-1-4'>
             <ul>
                 <li>
                     <a href='{{ '/add-source/' . $perpetrator->id }}'>Add Sources</a>
@@ -22,6 +22,5 @@
         <div class='col-1-2'>
             <a href='{{ '/add-victim/' . $perpetrator->id }}'>Add Victim</a>
         </div>
-
     </div>
 @endsection
