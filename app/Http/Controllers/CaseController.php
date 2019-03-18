@@ -120,8 +120,10 @@ class CaseController extends Controller
      */
     public function addSource($id)
     {
+        $perpetrator = Perpetrator::find($id);
+
         return view('add-source')->with([
-            'id' => $id
+            'perpetrator' => $perpetrator
         ]);
     }
 
@@ -137,32 +139,45 @@ class CaseController extends Controller
         ]);
         $perpetrator = Perpetrator::find($id);
 
-        $source = Source::where('perpetrator_id', '=', $perpetrator->id);
-        dump($source->url1);
-        die();
-        $source = new Source;
+        $source = Source::where('perpetrator_id', '=', $perpetrator->id)->first();
 
-        # Get size of request object - how many items did it return
-        # If
+        if (is_null($source)) {
+            $source = new Source;
+            $source->url1 = $request->input('source1');
+            if ($request->has('source2')) {
+                $source->url2 = $request->input('source2');
+            }
+            if ($request->has('source3')) {
+                $source->url3 = $request->input('source3');
+            }
+            if ($request->has('source4')) {
+                $source->url4 = $request->input('source4');
+            }
+            if ($request->has('source5')) {
+                $source->url5 = $request->input('source5');
+            }
+            $source->perpetrator()->associate($perpetrator);
 
-        $source->url1 = $request->input('source1');
-        if ($request->has('source2')) {
-            $source->url2 = $request->input('source2');
         }
-        if ($request->has('source3')) {
-            $source->url3 = $request->input('source3');
+        else {
+            $source->url1 = $request->input('source1');
+            if ($request->has('source2')) {
+                $source->url2 = $request->input('source2');
+            }
+            if ($request->has('source3')) {
+                $source->url3 = $request->input('source3');
+            }
+            if ($request->has('source4')) {
+                $source->url4 = $request->input('source4');
+            }
+            if ($request->has('source5')) {
+                $source->url5 = $request->input('source5');
+            }
         }
-        if ($request->has('source4')) {
-            $source->url4 = $request->input('source4');
-        }
-        if ($request->has('source5')) {
-            $source->url5 = $request->input('source5');
-        }
-        $source->perpetrator()->associate($perpetrator);
         $source->save();
 
-        return view('case-dashboard')->with([
-            'perpetrator' => $perpetrator
+        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
+            'alert' => 'Added source(s)'
         ]);
     }
 
