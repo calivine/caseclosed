@@ -35,22 +35,13 @@ aside {
 }
 
 body {
-    background-color: #262626;
     color: aliceblue;
     font-family: 'DINNextLTProLightCondensed', Helvetica, sans-serif;
     font-weight: normal;
 }
 
-form {
-    align-items: start;
-    margin: inherit;
-    padding: 5px;
-    /* Width of form */
-    width: 500px;
-}
-
 footer {
-    font-size: .75em;
+    font-size: .8em;
     text-align: center;
     /* sticky footer
     position: absolute;
@@ -60,9 +51,12 @@ footer {
     line-height: 60px; /* Vertically center the text there */
 }
 
+html {
+    background-color: #262626;
+}
+
 h1, h2, h3 {
     font-weight: bold;
-    margin: 0px;
     text-align: center;
 }
 
@@ -71,13 +65,8 @@ img {
     margin: 0 auto;
 }
 
-input {
-    display: block;
-}
 
-label {
-    display: block;
-}
+
 
 
 
@@ -121,7 +110,6 @@ Module Styles
 
 .header-primary {
     background-color: #323232;
-    font-size: .8em;
     height: 80px;
     text-align: center;
     padding-top: 18px;
@@ -141,8 +129,9 @@ ul li {
 /* Nav Modules */
 
 nav {
+    font-size: .8em;
     display: block;
-
+    padding: 0;
 }
 
 nav ul li {
@@ -150,31 +139,75 @@ nav ul li {
     padding: 15px;
 }
 
+/* Form Styles */
+form {
+    align-items: start;
+    margin: inherit;
+    padding: 15px;
+    /* Width of form */
+}
+
+form.add-input>input {
+    width: 500px;
+}
+
+input {
+    display: block;
+}
+
+label {
+    display: block;
+}
+
+
 /***************************
 ****************************
 Theme Styles
 ****************************
 ***************************/
+
 /*
-.welcome-background {
-    background-image: url("https://c.o0bg.com/rf/image_371w/Boston/2011-2020/2018/11/20/BostonGlobe.com/Spotlight/Images/IMG_1156.jpg");
+Shades(Dark to Light):
+#1C1C1C
+#262626
+#303030
+#393939
+#434343
+#4C4C4C
+ */
+
+.inner-container {
+    background-color: #393939;
+    height: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1188px;
 }
 
-
-
 #home-profile {
-    color: #32E219;
-
-} */
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #4C4C4C;
+}
 
 /* Alert Styles */
 .alert-error {
     background-color: #e3342f;
     color: #FFFFFF;
+    height: 50px;
 }
 
 .alert-success {
     background-color: deepskyblue;
+    height: 50px;
+}
+
+/* Subtitles */
+.homepage-subtitle {
+    font-size: 1.25em;
+    font-weight: bold;
 }
 
 

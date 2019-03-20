@@ -68,7 +68,7 @@ class CaseController extends Controller
      */
     public function newCase()
     {
-        return view('create-case');
+        return view('create.case');
     }
 
     /*
@@ -122,7 +122,7 @@ class CaseController extends Controller
     {
         $perpetrator = Perpetrator::find($id);
 
-        return view('add-source')->with([
+        return view('create.source')->with([
             'perpetrator' => $perpetrator
         ]);
     }
@@ -189,7 +189,7 @@ class CaseController extends Controller
      */
     public function addVictim($id)
     {
-        return view('add-victim')->with([
+        return view('create.victim')->with([
             'id' => $id
         ]);
     }
@@ -292,7 +292,7 @@ class CaseController extends Controller
     {
         // Display form to add images related to Perpetrator
         $perpetrator = Perpetrator::find($id);
-        return view('add-images')->with([
+        return view('create.image')->with([
             'perpetrator' => $perpetrator
         ]);
     }

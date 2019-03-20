@@ -2,10 +2,6 @@
 
 @section('content')
     <div class='row'>
-        <h1>Confirmation</h1>
-        <h2>Welcome</h2>
-    </div>
-    <div class='row'>
         <div class='col-1-4'>
             <ul>
                 <li>

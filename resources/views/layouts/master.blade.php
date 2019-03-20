@@ -31,25 +31,19 @@
             </li>
         @endforeach
     </div>
-
 @endif
 
-<h1>
-    {{ config('app.name') }}
-</h1>
-
-<h2>
-    Solved Murder and Missing Persons Archive
-</h2>
-
-<main>
-    <div class='container'>
+<main class='container'>
+    <h1>
+        {{ config('app.name') }}
+    </h1>
+    <div class='inner-container'>
         @yield('content')
     </div>
 </main>
 
 <footer>
-    <a href='{{ "*" }}'>Contact</a>
+    <a href='#'>Contact</a>
     <a href='{{ '/login' }}'>Login</a>
     &copy; {{ date('Y') }}
     A Beyond The Looking Glass Project

@@ -1,10 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class='row'>
-        <h1>Admin Portal</h1>
-        <h2>Welcome</h2>
-    </div>
+    <h1>Admin Portal</h1>
     <div class='row'>
         <div class='col-1-4'>
             <a href='{{ '/new' }}'>Create New Case</a>
@@ -18,8 +15,5 @@
                 @endforeach
             </ul>
         </div>
-
     </div>
-
-
 @endsection

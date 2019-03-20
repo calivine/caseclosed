@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Sources</h1>
-    <form method='POST' action='{{ '/process-source/' . $perpetrator->id }}'>
+    <form class='add-input' method='POST' action='{{ '/process-source/' . $perpetrator->id }}'>
         {{ csrf_field() }}
         <label for='source1'>Source 1:</label>
         <input type='text' autocomplete='off' name='source1' id='source1' value='{{ isset($perpetrator->source->url1) ? $perpetrator->source->url1 : ''}}'>

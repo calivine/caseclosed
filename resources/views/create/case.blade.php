@@ -3,7 +3,7 @@
 @section('content')
     <div class='row'>
         <div class='col-1-3'>
-            <form method='POST' action='{{ '/create' }}'>
+            <form class='add-input' method='POST' action='{{ '/create' }}'>
                 {{ csrf_field() }}
                 <fieldset>
                     <legend>
