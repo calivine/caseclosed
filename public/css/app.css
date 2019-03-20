@@ -35,9 +35,11 @@ aside {
 }
 
 body {
+    background-color: #1C1C1C;
     color: aliceblue;
     font-family: 'DINNextLTProLightCondensed', Helvetica, sans-serif;
     font-weight: normal;
+    margin: 0;
 }
 
 footer {
@@ -52,11 +54,12 @@ footer {
 }
 
 html {
-    background-color: #262626;
+    background-color: #1C1C1C;
 }
 
 h1, h2, h3 {
     font-weight: bold;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -106,14 +109,26 @@ Module Styles
     text-decoration: none;
 }
 
+/* Selection/RUN button */
+.run-process {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 150px;
+    height: 50px;
+}
+
 /* Header Modules */
 
 .header-primary {
-    background-color: #323232;
-    height: 80px;
+    height: 60px;
     text-align: center;
-    padding-top: 18px;
-    padding-bottom: 18px;
+}
+
+/* Header subtitles */
+.subtitle {
+    padding: 20px;
 }
 
 /* List Modules */
@@ -126,17 +141,51 @@ ul li {
     font-size: 1.75em;
 }
 
+/* Dashboard nameplate styles */
+.nameplate {
+    height: 75px;
+    width: 100%;
+    display: block;
+    padding: 20px;
+    border: 2px ridge #4C4C4C;
+    margin: 0;
+}
+
+.nameplate-contents {
+    display: inline;
+    margin: 0px 0px 0px 20px;
+}
+
+.nameplate-icon {
+    display: inline;
+    height: 75px;
+    width: 75px;
+    font-size: 1.5em;
+}
+
+a.nameplate-icon {
+    text-decoration: none;
+    color: aliceblue;
+}
+
 /* Nav Modules */
 
 nav {
+    background-color: #1C1C1C;
     font-size: .8em;
     display: block;
+    margin: 0;
     padding: 0;
 }
 
 nav ul li {
     display: inline-block;
     padding: 15px;
+}
+
+header {
+    margin: 0;
+    padding: 0;
 }
 
 /* Form Styles */

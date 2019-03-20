@@ -1,1 +1,0 @@
-<a href='/cases'>Return</a>

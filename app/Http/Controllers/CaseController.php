@@ -310,15 +310,27 @@ class CaseController extends Controller
             'victim' => 'required'
         ]);
         $perpetrator = Perpetrator::find($id);
-        $image = new Image;
-        $image->victim = $request->input('victim');
-        if ($request->has('perpetrator')) {
-            $image->perpetrator = $request->input('perpetrator');
+        $image = Image::where('perpetrator_id', '=', $perpetrator->id)->first();
+        if (is_null($image)) {
+            $image = new Image;
+            $image->victim = $request->input('victim');
+            if ($request->has('perpetrator')) {
+                $image->perpetrator = $request->input('perpetrator');
+            }
+            if ($request->has('other')) {
+                $image->other1 = $request->input('other');
+            }
+            $image->perpetrator()->associate($perpetrator);
+
+        } else {
+            $image->victim = $request->input('victim');
+            if ($request->has('perpetrator')) {
+                $image->perpetrator = $request->input('perpetrator');
+            }
+            if ($request->has('other')) {
+                $image->other1 = $request->input('other');
+            }
         }
-        if ($request->has('other')) {
-            $image->other1 = $request->input('other');
-        }
-        $image->perpetrator()->associate($perpetrator);
         $image->save();
         return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
             'alert' => 'Images Added.'
