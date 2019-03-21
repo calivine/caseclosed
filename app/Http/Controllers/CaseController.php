@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Source;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Incident;
 use App\Perpetrator;
 use App\Victim;
 use App\Image;
