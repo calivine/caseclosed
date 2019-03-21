@@ -387,8 +387,6 @@ class CaseController extends Controller
         return redirect()->route('caseDash', ['id' => $victim->perpetrator->id])->with([
             'alert' => 'Victim Updated'
         ]);
-
-
     }
 
 

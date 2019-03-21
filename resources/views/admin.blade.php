@@ -16,7 +16,9 @@
                         <a class='nameplate-icon' href='#'>
                             <i class='fas fa-user-edit'></i>
                         </a>
-                        <a class='nameplate-contents' href='{{ '#' }}'>Delete Case</a>
+                        <a class='nameplate-contents' href='{{ '#' }}'>
+                            <i class='fas fa-trash'></i>
+                        </a>
                     </li>
                 @endforeach
             </ul>
