@@ -2,7 +2,7 @@
 
 @section('content')
     <div class='row'>
-        <div class='col-1-4'>
+        <div class='col-1-2'>
             <ul>
                 <li>
                     <a href='{{ '/add-victim/' . $perpetrator->id }}'>
@@ -23,12 +23,12 @@
         </div>
     </div>
     <div class='row'>
-        <div class='col-1-4'>
+        <div class='col-3-3'>
             <ul>
                 @foreach($perpetrator->victims as $victim)
                     <li class='nameplate'>
                         <span class='nameplate-contents'>{{ $victim->first_name }} {{ $victim->last_name }}</span>
-                        <a class='nameplate-icon' href='{{ '/update-victim/' . $victim->id }}'>
+                        <a class='nameplate-icon' href='{{ '/victim/' . $victim->id . '/edit' }}'>
                             <i class='fas fa-user-edit'></i>
                         </a>
                         <a class='nameplate-contents' href='{{ '#' }}'>

@@ -29,8 +29,10 @@ class CreateVictimsTable extends Migration
             $table->integer('age')->nullable();
             $table->char('gender')->nullable();
             $table->string('cause_of_death');
+            $table->date('incident_date')->nullable();
+            $table->string('location')->nullable();
+            $table->text('description')->nullable();
             $table->integer('perpetrator_id')->unsigned();
-
             $table->foreign('perpetrator_id')->references('id')->on('perpetrators');
         });
     }

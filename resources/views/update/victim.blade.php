@@ -19,15 +19,15 @@
                     </select>
 
                     <label for='incident_date'>Date of Disappearance/Incident:</label>
-                    <input type='text' autocomplete='off' name='incident_date' id='incident_date' value='{{ $victim->detail->incident_date->format('Y-m-d') }}'>
+                    <input type='text' autocomplete='off' name='incident_date' id='incident_date' value='{{ $victim->incident_date->format('Y-m-d') }}'>
 
                     <label for='cause_of_death'>Cause of Death:</label>
                     <input type='text' autocomplete='off' name='cause_of_death' id='cause_of_death' value='{{ $victim->cause_of_death }}'>
 
                     <label for='details'>Details:</label>
-                    <textarea autocomplete='off' name='details' id='details' rows='5' cols='45'>{{ $victim->detail->description }}</textarea>
+                    <textarea autocomplete='off' name='details' id='details' rows='5' cols='45'>{{ $victim->description }}</textarea>
                     <label for='location'>Location:</label>
-                    <input type='text' autocomplete='off' name='location' id='location' value='{{ $victim->detail->location }}'>
+                    <input type='text' autocomplete='off' name='location' id='location' value='{{ $victim->location }}'>
 
                     <button type='submit' class='btn btn-primary'>Save Changes</button>
                 </fieldset>

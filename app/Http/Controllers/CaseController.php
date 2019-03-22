@@ -9,7 +9,6 @@ use App\Perpetrator;
 use App\Victim;
 use App\Image;
 use App\User;
-use App\Detail;
 
 class CaseController extends Controller
 {
@@ -228,20 +227,19 @@ class CaseController extends Controller
         }
 
 
-        $victim->perpetrator()->associate($perpetrator);
-        $victim->save();
+
 
         if ($request->has('incident_date') or $request->has('details')) {
-            $detail = new Detail;
+
             if ($request->has('incident_date')) {
-                $detail->incident_date = $request->input('incident_date');
+                $victim->incident_date = $request->input('incident_date');
             }
             if ($request->has('details')) {
-                $detail->description = $request->input('details');
+                $victim->description = $request->input('details');
             }
-            $detail->victim()->associate($victim);
-            $detail->save();
         }
+        $victim->perpetrator()->associate($perpetrator);
+        $victim->save();
 
         return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
             'alert' => 'Added new Victim record.'
@@ -342,8 +340,9 @@ class CaseController extends Controller
      * GET
      * /update-victim/{id}
      * Update Victim info
+     * /victim/{id}/edit
      */
-    public function updateVictim($id)
+    public function editVictim($id)
     {
         $victim = Victim::find($id);
         return view('update.victim')->with([
@@ -373,16 +372,15 @@ class CaseController extends Controller
             $victim->date_of_birth = $request->input('dob');
         }
         if ($request->has('incident_date')) {
-            $victim->detail->incident_date = $request->input('incident_date');
+            $victim->incident_date = $request->input('incident_date');
         }
         if ($request->has('details')) {
-            $victim->detail->description = $request->input('details');
+            $victim->description = $request->input('details');
         }
         if ($request->has('location')) {
-            $victim->detail->location = $request->input('location');
+            $victim->location = $request->input('location');
         }
         $victim->save();
-        $victim->detail->save();
         return redirect()->route('caseDash', ['id' => $victim->perpetrator->id])->with([
             'alert' => 'Victim Updated'
         ]);

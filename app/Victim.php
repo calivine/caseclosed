@@ -11,13 +11,15 @@ class Victim extends Model
         return $this->belongsTo('App\Perpetrator');
     }
 
-
+/*
     public function detail()
     {
         return $this->hasOne('App\Detail');
     }
+*/
 
     protected $dates = [
         'date_of_birth',
+        'incident_date'
     ];
 }

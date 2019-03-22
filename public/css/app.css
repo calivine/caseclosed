@@ -51,7 +51,7 @@ aside {
 body {
     background-color: #1C1C1C;
     color: aliceblue;
-    font-family: 'DINNextLTProLightCondensed', Helvetica, sans-serif;
+    font-family: 'AdlerRegular', Helvetica, sans-serif;
     font-weight: normal;
     margin: 0;
 }
@@ -198,6 +198,7 @@ nav ul li {
 }
 
 header {
+    font-family: Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -216,10 +217,16 @@ form.add-input>input {
 
 input {
     display: block;
+    font-family: Helvetica, sans-serif;
 }
 
 label {
     display: block;
+    font-family: Helvetica, sans-serif;
+}
+
+select {
+    font-family: Helvetica, sans-serif;
 }
 
 

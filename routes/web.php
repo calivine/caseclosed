@@ -45,20 +45,24 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/admin', 'CaseController@adminDash');
 
+    # CREATE new Case record
     Route::get('/new', 'CaseController@newCase');
     Route::post('/create', 'CaseController@create');
 
+    # CREATE new Source
     Route::get('/add-source/{id}', 'CaseController@addSource');
     Route::post('/process-source/{id}', 'CaseController@processSource');
 
+    # CREATE new victim
     Route::get('/add-victim/{id}', 'CaseController@addVictim');
     Route::post('/process-victim/{id}', 'CaseController@processVictim');
 
+    # CREATE new image
     Route::get('/add-images/{id}', 'CaseController@addImages');
     Route::post('/images/{id}', 'CaseController@processImages');
 
-    Route::get('/update-victim/{id}', 'CaseController@updateVictim');
-    Route::post('/process-update-victim/{id}', 'CaseController@processUpdateVictim');
+    Route::get('/victim/{id}/edit', 'CaseController@editVictim');
+    Route::put('/process-update-victim/{id}', 'CaseController@processUpdateVictim');
 
 
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');

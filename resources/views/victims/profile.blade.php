@@ -20,7 +20,7 @@
                     </header>
                     <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
                     <p>
-                        {{ $victim->detail->description }}
+                        {{ $victim->description }}
                     </p>
                 </article>
                 <article>
@@ -65,7 +65,7 @@
                         </li>
                     @endforeach
                     <li>
-                        Incident date: {{ $victim->detail->incident_date->format('j F, Y') }}
+                        Incident date: {{ $victim->incident_date->format('j F, Y') }}
                     </li>
                     <li>
                         Cause of death: {{ $victim->cause_of_death }}
