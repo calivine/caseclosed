@@ -4,7 +4,7 @@
     <h1 class='subtitle'>Admin Portal</h1>
     <div class='row'>
         <div class='col-1-4'>
-            <a class='run-process' href='{{ '/new' }}'>Create New Case</a>
+            <a class='run-process' href='{{ '/case/new' }}'>Create New Case</a>
         </div>
     </div>
     <div class='row'>
@@ -16,7 +16,7 @@
                         <a class='nameplate-icon' href='#'>
                             <i class='fas fa-user-edit'></i>
                         </a>
-                        <a class='nameplate-contents' href='{{ '#' }}'>
+                        <a class='nameplate-contents' href='{{ '/case/' . $perpetrator->id . '/delete' }}'>
                             <i class='fas fa-trash'></i>
                         </a>
                     </li>

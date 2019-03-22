@@ -33,7 +33,7 @@ class CaseController extends Controller
         $victim = Victim::orderBy('last_name')->get();
         $victims = $victim->toArray();
 
-        return view('victims.cases')->with(['victims' => $victims]);
+        return view('modules.list')->with(['victims' => $victims]);
     }
 
     /*
@@ -52,7 +52,7 @@ class CaseController extends Controller
 
         $sources = $perpetrator->source->only(['url1','url2','url3','url4','url5']);
 
-        return view('victims.profile')->with([
+        return view('case.profile')->with([
             'victim' => $victim,
             'image' => $image ?? null,
             'sources' => $sources
@@ -61,12 +61,41 @@ class CaseController extends Controller
 
     /*
      * GET
-     * /new
+     * /admin
+     * Display Admin Dashboard
+     * Get Perpetrator IDs to list links for Case Dashboards
+     */
+    public function adminDash()
+    {
+        $perpetrators = Perpetrator::all();
+        return view('admin')->with([
+            'perpetrators' => $perpetrators
+        ]);
+    }
+
+    /*
+     * GET
+     * /case-dashboard/{id}
+     * displayDash($id)
+     * caseDash
+     * Display case dashboard page
+     */
+    public function displayDash($id)
+    {
+        $perpetrator = Perpetrator::find($id);
+        return view('case-dashboard')->with([
+            'perpetrator' => $perpetrator
+        ]);
+    }
+
+    /*
+     * GET
+     * /case/new
      *  Display form to create new record about a case/perpetrator
      */
     public function newCase()
     {
-        return view('create.case');
+        return view('case.create');
     }
 
     /*
@@ -108,26 +137,59 @@ class CaseController extends Controller
         return view('case-dashboard')->with([
             'perpetrator' => $perpetrator
         ]);
-
     }
 
     /*
      * GET
-     * /add-source/{id}
-     * Displays page to add sources
+     * /case/{id}/delete
+     * Display confirmation page for case delete
      */
-    public function addSource($id)
+    public function deleteCase($id)
     {
         $perpetrator = Perpetrator::find($id);
 
-        return view('create.source')->with([
+        return view('case.delete')->with([
+            'perpetrator' => $perpetrator
+        ]);
+    }
+
+    /*
+     * DELETE
+     * /case/{id}
+     * Delete process for cases
+     */
+    public function destroyCase($id)
+    {
+        $perpetrator = Perpetrator::find($id);
+        $caseID = $perpetrator->id;
+        $perpetrator->victims()->delete();
+        $perpetrator->source()->delete();
+        $perpetrator->image()->delete();
+        $perpetrator->delete();
+
+
+        return redirect('admin')->with([
+            'alert' => 'Case Deleted.'
+        ]);
+    }
+
+    /*
+     * GET
+     * /source/{id}/new
+     * Displays page to add sources
+     */
+    public function newSource($id)
+    {
+        $perpetrator = Perpetrator::find($id);
+
+        return view('source.create')->with([
             'perpetrator' => $perpetrator
         ]);
     }
 
     /*
      * POST
-     * /process-source/{id}
+     * /source/{id}
      * Process input from add source route
      */
     public function processSource(Request $request, $id)
@@ -179,23 +241,21 @@ class CaseController extends Controller
         ]);
     }
 
-
     /*
      * GET
-     * /add-victim/{id}
+     * /victim/{id}/new
      * Display form to create new victim record
      */
-    public function addVictim($id)
+    public function newVictim($id)
     {
-        return view('create.victim')->with([
+        return view('victim.create')->with([
             'id' => $id
         ]);
     }
 
-
     /*
      * POST
-     * /process-victim/{id}
+     * /victim/{id}
      * Process the input from /add-victim and save to database
      */
     public function processVictim(Request $request, $id)
@@ -225,10 +285,6 @@ class CaseController extends Controller
         if ($request->has('dob')) {
             $victim->date_of_birth = $request->input('dob');
         }
-
-
-
-
         if ($request->has('incident_date') or $request->has('details')) {
 
             if ($request->has('incident_date')) {
@@ -247,98 +303,8 @@ class CaseController extends Controller
 
     }
 
-
     /*
      * GET
-     * /admin
-     * Display Admin Dashboard
-     * Get Perpetrator IDs to list links for Case Dashboards
-     */
-    public function adminDash()
-    {
-        $perpetrators = Perpetrator::all();
-        return view('admin')->with([
-            'perpetrators' => $perpetrators
-        ]);
-    }
-
-
-    /*
-     * GET
-     * /case-dashboard/{id}
-     * displayDash($id)
-     * caseDash
-     * Display case dashboard page
-     */
-    public function displayDash($id)
-    {
-        $perpetrator = Perpetrator::find($id);
-        return view('case-dashboard')->with([
-            'perpetrator' => $perpetrator
-        ]);
-    }
-
-
-    /*
-     * GET
-     * /add-images/{id}
-     * addImages
-     * Display form to save images
-     */
-    public function addImages($id)
-    {
-        // Display form to add images related to Perpetrator
-        $perpetrator = Perpetrator::find($id);
-        return view('create.image')->with([
-            'perpetrator' => $perpetrator
-        ]);
-    }
-
-
-    /*
-     * POST
-     * /images/{id}
-     * processImages
-     * Process input from /add-images
-     */
-    public function processImages(Request $request, $id)
-    {
-        $request->validate([
-            'victim' => 'required'
-        ]);
-        $perpetrator = Perpetrator::find($id);
-        $image = Image::where('perpetrator_id', '=', $perpetrator->id)->first();
-        if (is_null($image)) {
-            $image = new Image;
-            $image->victim = $request->input('victim');
-            if ($request->has('perpetrator')) {
-                $image->perpetrator = $request->input('perpetrator');
-            }
-            if ($request->has('other')) {
-                $image->other1 = $request->input('other');
-            }
-            $image->perpetrator()->associate($perpetrator);
-
-        } else {
-            $image->victim = $request->input('victim');
-            if ($request->has('perpetrator')) {
-                $image->perpetrator = $request->input('perpetrator');
-            }
-            if ($request->has('other')) {
-                $image->other1 = $request->input('other');
-            }
-        }
-        $image->save();
-        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
-            'alert' => 'Images Added.'
-        ]);
-
-
-    }
-
-    /*
-     * GET
-     * /update-victim/{id}
      * Update Victim info
      * /victim/{id}/edit
      */
@@ -351,11 +317,11 @@ class CaseController extends Controller
     }
 
     /*
-     * POST
-     * /process-update-victim/{id}
+     * PUT
+     * /victim/{id}
      * Process the input for updating victim information
      */
-    public function processUpdateVictim(Request $request, $id)
+    public function updateVictim(Request $request, $id)
     {
         $victim = Victim::find($id);
         if ($request->has('victim_name')) {
@@ -386,7 +352,85 @@ class CaseController extends Controller
         ]);
     }
 
+    /*
+     * GET
+     * /victim/{id}/delete
+     * Display delete victim record confirmation
+     */
+    public function deleteVictim($id) {
+        $victim = Victim::find($id);
 
+        return view('victim.delete')->with([
+            'victim' => $victim
+        ]);
+    }
+
+    /*
+     * Complete the delete process
+     * DELETE
+     * /victim/{id}
+     */
+    public function destroyVictim($id) {
+        $victim = Victim::find($id);
+        $caseID = $victim->perpetrator->id;
+        $victim->delete();
+
+        return redirect()->route('caseDash', ['id' => $caseID])->with([
+            'alert' => 'Victim Deleted.'
+        ]);
+    }
+
+    /*
+     * GET
+     * /image/{id}/new
+     * Display form to save images
+     */
+    public function newImage($id)
+    {
+        // Display form to add images related to Perpetrator
+        $perpetrator = Perpetrator::find($id);
+        return view('image.create')->with([
+            'perpetrator' => $perpetrator
+        ]);
+    }
+
+    /*
+     * POST
+     * /image/{id}
+     * Process input from /image/{id}/new
+     */
+    public function processImage(Request $request, $id)
+    {
+        $request->validate([
+            'victim' => 'required'
+        ]);
+        $perpetrator = Perpetrator::find($id);
+        $image = Image::where('perpetrator_id', '=', $perpetrator->id)->first();
+        if (is_null($image)) {
+            $image = new Image;
+            $image->victim = $request->input('victim');
+            if ($request->has('perpetrator')) {
+                $image->perpetrator = $request->input('perpetrator');
+            }
+            if ($request->has('other')) {
+                $image->other1 = $request->input('other');
+            }
+            $image->perpetrator()->associate($perpetrator);
+
+        } else {
+            $image->victim = $request->input('victim');
+            if ($request->has('perpetrator')) {
+                $image->perpetrator = $request->input('perpetrator');
+            }
+            if ($request->has('other')) {
+                $image->other1 = $request->input('other');
+            }
+        }
+        $image->save();
+        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
+            'alert' => 'Images Added.'
+        ]);
+    }
     /*
      * $perpetrators = Perpetrator::all();
         $perp_labels = array();

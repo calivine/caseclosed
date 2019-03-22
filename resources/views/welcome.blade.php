@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('victims.home-profile')
+    @include('modules.home-profile')
 @endsection

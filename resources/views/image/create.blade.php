@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <form class='add-input' method='POST' action='{{ '/images/' . $perpetrator->id }}'>
+    <form class='add-input' method='POST' action='{{ '/image/' . $perpetrator->id }}'>
         {{ csrf_field() }}
         <fieldset>
             <label for='victim_image'>Victim Image:</label>

@@ -46,24 +46,32 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin', 'CaseController@adminDash');
 
     # CREATE new Case record
-    Route::get('/new', 'CaseController@newCase');
+    Route::get('/case/new', 'CaseController@newCase');
     Route::post('/create', 'CaseController@create');
 
+    # DELETE case
+    Route::get('/case/{id}/delete', 'CaseController@deleteCase');
+    Route::delete('/case/{id}', 'CaseController@destroyCase');
+
     # CREATE new Source
-    Route::get('/add-source/{id}', 'CaseController@addSource');
-    Route::post('/process-source/{id}', 'CaseController@processSource');
+    Route::get('/source/{id}/new', 'CaseController@newSource');
+    Route::post('/source/{id}', 'CaseController@processSource');
 
-    # CREATE new victim
-    Route::get('/add-victim/{id}', 'CaseController@addVictim');
-    Route::post('/process-victim/{id}', 'CaseController@processVictim');
+    # CREATE new Victim
+    Route::get('/victim/{id}/new', 'CaseController@newVictim');
+    Route::post('/victim/{id}', 'CaseController@processVictim');
 
-    # CREATE new image
-    Route::get('/add-images/{id}', 'CaseController@addImages');
-    Route::post('/images/{id}', 'CaseController@processImages');
-
+    # UPDATE Victim
     Route::get('/victim/{id}/edit', 'CaseController@editVictim');
-    Route::put('/process-update-victim/{id}', 'CaseController@processUpdateVictim');
+    Route::put('/victim/{id}', 'CaseController@updateVictim');
 
+    # DELETE Victim
+    Route::get('/victim/{id}/delete', 'CaseController@deleteVictim');
+    Route::delete('/victim/{id}', 'CaseController@destroyVictim');
+
+    # CREATE new Image
+    Route::get('/image/{id}/new', 'CaseController@newImage');
+    Route::post('/image/{id}', 'CaseController@processImage');
 
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');
 });

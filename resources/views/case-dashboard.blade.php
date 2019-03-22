@@ -5,17 +5,17 @@
         <div class='col-1-2'>
             <ul>
                 <li>
-                    <a href='{{ '/add-victim/' . $perpetrator->id }}'>
+                    <a href='{{ '/victim/' . $perpetrator->id . '/new' }}'>
                         <i class='fas fa-user-plus'></i></a>
                     Victim
                 </li>
                 <li>
-                    <a href='{{ '/add-source/' . $perpetrator->id }}'>
+                    <a href='{{ '/source/' . $perpetrator->id . '/new' }}'>
                         <i class='fas fa-plus'></i></a>
                     Sources
                 </li>
                 <li>
-                    <a href='{{ '/add-images/' . $perpetrator->id }}'>
+                    <a href='{{ '/image/' . $perpetrator->id . '/new' }}'>
                         <i class='fas fa-plus'></i></a>
                     Images
                 </li>
@@ -31,7 +31,7 @@
                         <a class='nameplate-icon' href='{{ '/victim/' . $victim->id . '/edit' }}'>
                             <i class='fas fa-user-edit'></i>
                         </a>
-                        <a class='nameplate-contents' href='{{ '#' }}'>
+                        <a class='nameplate-contents' href='{{ '/victim/' . $victim->id . '/delete' }}'>
                             <i class='fas fa-trash'></i>
                         </a>
                     </li>
