@@ -46,10 +46,10 @@
 </main>
 
 <footer>
-    <a href='#'>Contact</a>
-    <a href='{{ '/login' }}'>Login</a>
+    <a href='{{ url('https://www.pitchforked.net') }}'>Pitchforked</a>
     &copy; {{ date('Y') }}
     A Beyond The Looking Glass Project
+    <a href='{{ '/login' }}'>Login</a>
 </footer>
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
