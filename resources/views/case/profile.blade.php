@@ -70,18 +70,19 @@
                     <li>
                         Cause of death: {{ $victim->cause_of_death }}
                     </li>
-                    @foreach($sources as $url)
-                        @if($url != null)
-                            <li>
-                                <a href='{{ $url }}' target='_blank'>
-                                    {{ $url }}
-                                </a>
-                            </li>
-                        @endif
-                    @endforeach
-
                 </ul>
             </aside>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-3-4'>
+            @foreach($sources as $url)
+                @if($url != null)
+                    <a href='{{ $url }}' target='_blank'>
+                        {{ $url }}
+                    </a>
+                @endif
+            @endforeach
         </div>
     </div>
 @endsection

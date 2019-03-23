@@ -27,10 +27,6 @@ Route::get('/debug', function () {
 
 Route::view('/about', 'about');
 
-// Route::view('/admin', 'admin');
-
-
-
 Route::get('/profile/{title}', 'CaseController@show');
 
 Route::get('/cases', 'CaseController@display');
@@ -39,10 +35,10 @@ Route::get('/home', 'CaseController@index');
 
 Route::redirect('/', '/home');
 
-
-
 Route::group(['middleware' => 'auth'], function() {
 
+
+    # Display admin dashboard
     Route::get('/admin', 'CaseController@adminDash');
 
     # CREATE new Case record
@@ -73,6 +69,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/image/{id}/new', 'CaseController@newImage');
     Route::post('/image/{id}', 'CaseController@processImage');
 
+    # Display case dashboard
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');
 });
 

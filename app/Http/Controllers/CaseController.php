@@ -161,7 +161,6 @@ class CaseController extends Controller
     public function destroyCase($id)
     {
         $perpetrator = Perpetrator::find($id);
-        $caseID = $perpetrator->id;
         $perpetrator->victims()->delete();
         $perpetrator->source()->delete();
         $perpetrator->image()->delete();
