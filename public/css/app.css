@@ -256,12 +256,12 @@ Shades(Dark to Light):
     height: 800px;
     padding: 0 15px;
     margin: 0 auto;
-    max-width: 1188px;
+    max-width: 1388px;
 }
 
 #home-profile {
     height: 100%;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     padding: 15px;
     background-color: #4C4C4C;
