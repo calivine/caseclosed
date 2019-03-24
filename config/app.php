@@ -4,14 +4,12 @@ return [
 
     /* Guest nav routes */
     'nav' => [
-        '/home' => 'Home',
         '/about' => 'About',
         '/cases' => 'Cases'
     ],
 
     /* Admin user nav routes */
     'navAdmin' => [
-        '/home' => 'Home',
         '/about' => 'About',
         '/cases' => 'Cases',
         '/admin' => 'Admin Tools'

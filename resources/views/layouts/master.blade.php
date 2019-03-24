@@ -10,8 +10,6 @@
     {{-- CSS global to every page can be loaded here --}}
     <link href='{{ '/css/app.css' }}' rel='stylesheet'>
 
-    <link href='{{ '/css/app-style.css' }}' rel='stylesheet'>
-
     {{-- CSS specific to a given page/child view can be included via a stack --}}
     @stack('head')
 </head>
@@ -22,7 +20,8 @@
     </div>
 @endif
 
-<header class='header-primary'>
+<header>
+    <a id='header-title-link' href='{{ '/home' }}'><h1 id='header-title'>{{ config('app.name') }}</h1></a>
     @include('modules.nav')
 </header>
 
@@ -37,9 +36,6 @@
 @endif
 
 <main class='container'>
-    <h1>
-        {{ config('app.name') }}
-    </h1>
     <div class='inner-container'>
         @yield('content')
     </div>
