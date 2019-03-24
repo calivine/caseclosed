@@ -21,7 +21,7 @@
 @endif
 
 <header>
-    <a id='header-title-link' href='{{ '/home' }}'><h1 id='header-title'>{{ config('app.name') }}</h1></a>
+    @include('modules.title')
     @include('modules.nav')
 </header>
 

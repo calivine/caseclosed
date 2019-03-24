@@ -71,7 +71,7 @@ header {
 }
 
 h1, h2, h3 {
-    font-family: 'AdlerRegular', Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: bold;
     margin: 0 auto;
     text-align: center;
@@ -81,13 +81,6 @@ img {
     display: block;
     margin: 0 auto;
 }
-
-p {
-    font-family: 'AdlerRegular', Helvetica, sans-serif;
-}
-
-
-
 
 
 
@@ -146,6 +139,7 @@ Module Styles
 
 #header-title {
     display: inline-block;
+    font-family: 'AdlerRegular', Helvetica, sans-serif;
 }
 
 #header-title-link {
@@ -202,13 +196,13 @@ nav {
 
 
 nav ul {
-    margin-left: 75px;
+    margin-left: 60px;
 }
 
 nav li {
     display: inline-block;
-    font-size: 1.25em;
-    margin: 15px;
+    font-size: 1.5em;
+    margin: 10px;
     padding: 10px;
 }
 
