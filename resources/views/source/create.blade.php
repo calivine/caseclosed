@@ -16,6 +16,4 @@
         <input type='text' autocomplete='off' name='source5' id='source5' value='{{ isset($perpetrator->source->url5) ? $perpetrator->source->url5 : ''}}'>
         <button type='submit' class='btn btn-primary'>Save</button>
     </form>
-
-
 @endsection

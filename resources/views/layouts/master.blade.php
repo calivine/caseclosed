@@ -36,9 +36,7 @@
 @endif
 
 <main class='container'>
-    <div class='inner-container'>
-        @yield('content')
-    </div>
+    @yield('content')
 </main>
 
 <footer>

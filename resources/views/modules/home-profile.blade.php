@@ -8,7 +8,7 @@
             Date of Arrest, Death, or Other Outcome: {{ $perpetrator->arrest_date->format('j F, Y') }}
         </li>
     </ul>
-    <p class='homepage-subtitle'>Victims</p>
+    <p class='homepage-subtitle'>Known Victims</p>
     @foreach($perpetrator->victims as $victim)
         <p>
             {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
