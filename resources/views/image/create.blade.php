@@ -4,12 +4,16 @@
     <form class='add-input' method='POST' action='{{ '/image/' . $perpetrator->id }}'>
         {{ csrf_field() }}
         <fieldset>
-            <label for='victim_image'>Victim Image:</label>
-            <input type='text' autofocus autocomplete='off' name='victim' id='victim_image'>
-            <label for='perpetrator_image'>Perpetrator Image:</label>
-            <input type='text' autocomplete='off' name='perpetrator' id='perpetrator_image'>
-            <label for='other'>Additional Image:</label>
-            <input type='text' autocomplete='off' name='other' id='other'>
+            <label for='url'>Image URL:</label>
+            <input type='text' autofocus autocomplete='off' name='url' id='url'>
+            <label for='type'>Type:</label>
+            <select name='type'>
+                <option value='victim'>Victim</option>
+                <option value='perpetrator'>Perpetrator</option>
+                <option value='Other'>Other</option>
+            </select>
+            <label for='caption'>Caption:</label>
+            <input type='text' autocomplete='off' name='caption' id='caption'>
             <button type='submit' class='btn btn-primary'>Save</button>
         </fieldset>
     </form>

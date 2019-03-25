@@ -44,17 +44,20 @@ class CaseController extends Controller
     public function show($name) {
 
         $victim = Victim::where('last_name', '=', $name)->first();
+
         $perpetrator = Perpetrator::find($victim->perpetrator_id);
 
-        // $images = Image::where('victim_id', $victim->id)->whereNotNull('victim')->first();
+        $images = $perpetrator->images;
+        $victImage = $images->firstWhere('type', 'Victim');
+        $perpImage = $images->firstWhere('type', 'Perpetrator');
 
-        $image = $perpetrator->image; // ->only(['victim','perpetrator','other1']);
-
-        $sources = $perpetrator->source->only(['url1','url2','url3','url4','url5']);
+        $sources = $perpetrator->sources;
 
         return view('case.profile')->with([
             'victim' => $victim,
-            'image' => $image ?? null,
+            'victImage' => $victImage ?? null,
+            'perpImage' => $perpImage ?? null,
+
             'sources' => $sources
         ]);
     }
@@ -162,7 +165,7 @@ class CaseController extends Controller
     {
         $perpetrator = Perpetrator::find($id);
         $perpetrator->victims()->delete();
-        $perpetrator->source()->delete();
+        $perpetrator->sources()->delete();
         $perpetrator->image()->delete();
         $perpetrator->delete();
 
@@ -194,49 +197,20 @@ class CaseController extends Controller
     public function processSource(Request $request, $id)
     {
         $request->validate([
-            'source1' => 'required'
+            'source' => 'required'
         ]);
+
         $perpetrator = Perpetrator::find($id);
 
-        $source = Source::where('perpetrator_id', '=', $perpetrator->id)->first();
+        $source = new Source;
+        $source->url = $request->input('source');
 
-        if (is_null($source)) {
-            $source = new Source;
-            $source->url1 = $request->input('source1');
-            if ($request->has('source2')) {
-                $source->url2 = $request->input('source2');
-            }
-            if ($request->has('source3')) {
-                $source->url3 = $request->input('source3');
-            }
-            if ($request->has('source4')) {
-                $source->url4 = $request->input('source4');
-            }
-            if ($request->has('source5')) {
-                $source->url5 = $request->input('source5');
-            }
-            $source->perpetrator()->associate($perpetrator);
+        $source->perpetrator()->associate($perpetrator);
 
-        }
-        else {
-            $source->url1 = $request->input('source1');
-            if ($request->has('source2')) {
-                $source->url2 = $request->input('source2');
-            }
-            if ($request->has('source3')) {
-                $source->url3 = $request->input('source3');
-            }
-            if ($request->has('source4')) {
-                $source->url4 = $request->input('source4');
-            }
-            if ($request->has('source5')) {
-                $source->url5 = $request->input('source5');
-            }
-        }
         $source->save();
 
         return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
-            'alert' => 'Added source(s)'
+            'alert' => 'Added source'
         ]);
     }
 
@@ -310,7 +284,7 @@ class CaseController extends Controller
     public function editVictim($id)
     {
         $victim = Victim::find($id);
-        return view('update.victim')->with([
+        return view('victim.update')->with([
             'victim' => $victim
         ]);
     }
@@ -401,33 +375,21 @@ class CaseController extends Controller
     public function processImage(Request $request, $id)
     {
         $request->validate([
-            'victim' => 'required'
+            'url' => 'required'
         ]);
         $perpetrator = Perpetrator::find($id);
-        $image = Image::where('perpetrator_id', '=', $perpetrator->id)->first();
-        if (is_null($image)) {
-            $image = new Image;
-            $image->victim = $request->input('victim');
-            if ($request->has('perpetrator')) {
-                $image->perpetrator = $request->input('perpetrator');
-            }
-            if ($request->has('other')) {
-                $image->other1 = $request->input('other');
-            }
-            $image->perpetrator()->associate($perpetrator);
 
-        } else {
-            $image->victim = $request->input('victim');
-            if ($request->has('perpetrator')) {
-                $image->perpetrator = $request->input('perpetrator');
-            }
-            if ($request->has('other')) {
-                $image->other1 = $request->input('other');
-            }
+        $image = new Image;
+        $image->url = $request->input('url');
+        $image->type = $request->input('type');
+        if ($request->has('caption')) {
+            $image->caption = $request->input('caption');
         }
+        $image->perpetrator()->associate($perpetrator);
+
         $image->save();
         return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
-            'alert' => 'Images Added.'
+            'alert' => 'Image Added.'
         ]);
     }
     /*

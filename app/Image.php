@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    public function victim()
+    public function perpetrator()
     {
-        return $this->belongsTo('App\Victim');
+        return $this->belongsTo('App\Perpetrator');
     }
 }

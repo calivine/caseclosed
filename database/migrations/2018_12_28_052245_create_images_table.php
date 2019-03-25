@@ -16,9 +16,10 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('victim')->nullable();
-            $table->string('perpetrator')->nullable();
-            $table->string('other1')->nullable();
+
+            $table->string('url');
+            $table->string('type');
+            $table->string('caption')->nullable();
 
             $table->integer('perpetrator_id')->unsigned();
 

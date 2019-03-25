@@ -11,9 +11,9 @@ class Perpetrator extends Model
         return $this->hasMany('App\Victim');
     }
 
-    public function source()
+    public function sources()
     {
-        return $this->hasOne('App\Source');
+        return $this->hasMany('App\Source');
     }
     /*
     public function details()
@@ -22,9 +22,9 @@ class Perpetrator extends Model
     }
     */
 
-    public function image()
+    public function images()
     {
-        return $this->hasOne('App\Image');
+        return $this->hasMany('App\Image');
     }
 
     protected $dates = [

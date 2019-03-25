@@ -16,17 +16,8 @@ class CreateSourcesTable extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-
-            $table->string('url1')->nullable();
-            $table->string('url2')->nullable();
-            $table->string('url3')->nullable();
-            $table->string('url4')->nullable();
-            $table->string('url5')->nullable();
-
-            // $table->integer('victim_id')->unsigned()->nullable();
+            $table->string('url');
             $table->integer('perpetrator_id')->unsigned();
-
-            // $table->foreign('victim_id')->references('id')->on('victims');
             $table->foreign('perpetrator_id')->references('id')->on('perpetrators');
         });
     }

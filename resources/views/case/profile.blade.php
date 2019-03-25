@@ -9,13 +9,11 @@
                         <h2>
                             {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
                         </h2>
-                        @if($image != null)
-                            @if($image->victim != null)
-                                <img src='{{ $image->victim }}'
+                        @if($victImage != null)
+                                <img src='{{ $victImage->url }}'
                                      alt='Victim profile picture'
                                      width='400px'
                                      height='450px'>
-                            @endif
                         @endif
                     </header>
                     <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
@@ -44,11 +42,9 @@
                     <li>
                         Crime commited by: {{ $victim->perpetrator->first_name }} {{ $victim->perpetrator->last_name }}
                     </li>
-                    @if($image != null)
-                        @if($image->perpetrator != null)
-                            <img src='{{ $image->perpetrator }}'
+                    @if($perpImage != null)
+                            <img src='{{ $perpImage->url }}'
                                  alt='Perpetrator picture' width='350px'>
-                        @endif
                     @endif
                     <h4>
                         Victim(s)
@@ -76,12 +72,10 @@
     </div>
     <div class='row'>
         <div class='col-3-4'>
-            @foreach($sources as $url)
-                @if($url != null)
-                    <a href='{{ $url }}' target='_blank'>
-                        {{ $url }}
-                    </a>
-                @endif
+            @foreach($sources as $source)
+                <a href='{{ $source->url }}' target='_blank'>
+                    {{ $source->url }}
+                </a>
             @endforeach
         </div>
     </div>
