@@ -35,17 +35,24 @@ Shades(Dark to Light):
 #4C4C4C
  */
 
+body {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+}
+
 .container {
     background-color: #393939;
     height: 80vh;
-    padding: 0;
-    margin: 0 auto;
-    width: 95vw;
+    padding: 0 50px;
+    margin: 0;
+    width: 100vw;
 }
 
 #home-profile {
     height: 80vh;
-    width: 70%;
+    width: 50vw;
     margin: 0 auto;
     padding: 30px 53px;
     background-color: #4C4C4C;
@@ -63,14 +70,6 @@ a::selection {
 aside {
     float: right;
     position: relative;
-}
-
-body {
-    background-color: #1C1C1C;
-    color: #FFFFFF;
-    font-family: Helvetica, sans-serif;
-    font-weight: normal;
-    padding: 5px;
 }
 
 footer {
