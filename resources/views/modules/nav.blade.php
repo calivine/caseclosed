@@ -3,7 +3,7 @@
         @if(Auth::check())
             @foreach(config('app.navAdmin') as $link => $label)
                 @if(Request::is(substr($link, 1)))
-                    <li>{{ $label }}</li>
+                    <li class='link-selected'>{{ $label }}</li>
                 @else
                     <li><a href='{{ $link }}'>{{ $label }}</a></li>
                 @endif
@@ -17,7 +17,7 @@
         @else
             @foreach(config('app.nav') as $link => $label)
                 @if(Request::is(substr($link, 1)))
-                    <li>{{ $label }}</li>
+                    <li class='link-selected'>{{ $label }}</li>
                 @else
                     <li><a href='{{ $link }}'>{{ $label }}</a></li>
                 @endif

@@ -8,9 +8,6 @@ Reset Styles
 @import 'base.css';
 
 
-
-
-
 /***************************
 ****************************
 Base Styles
@@ -28,12 +25,39 @@ Base Styles
  * #151515
  */
 
+/*
+Shades(Dark to Light):
+#1C1C1C
+#262626
+#303030
+#393939
+#434343
+#4C4C4C
+ */
 
+.container {
+    background-color: #393939;
+    height: 80vh;
+    padding: 0;
+    margin: 0 auto;
+    width: 95vw;
+}
+
+#home-profile {
+    height: 80vh;
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px 53px;
+    background-color: #4C4C4C;
+}
 
 a {
     color: #acacac;
-    font-weight: bold;
     text-decoration: none;
+}
+
+a::selection {
+    text-decoration: underline;
 }
 
 aside {
@@ -230,6 +254,13 @@ form.add-input>input {
     width: 500px;
 }
 
+#logout {
+    height: 42px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100px;
+}
+
 input {
     display: block;
     margin-bottom: 15px;
@@ -245,45 +276,17 @@ label {
     display: block;
 }
 
-
 .form-check-label, .form-check-input {
     display: inline-block;
     margin: 0px;
 }
 
-
-
-/***************************
-****************************
-Theme Styles
-****************************
-***************************/
-
-/*
-Shades(Dark to Light):
-#1C1C1C
-#262626
-#303030
-#393939
-#434343
-#4C4C4C
- */
-
-.container {
-    background-color: #393939;
-    height: 80vh;
-    padding: 0;
-    margin: 0 auto;
-    width: 95vw;
+/* Link modules */
+/* Text decoration for selected link */
+.link-selected {
+    text-decoration: underline;
 }
 
-#home-profile {
-    height: 80vh;
-    width: 70%;
-    margin: 0 auto;
-    padding: 30px 53px;
-    background-color: #4C4C4C;
-}
 
 /* Alert Styles */
 .alert-error {
@@ -297,10 +300,5 @@ Shades(Dark to Light):
     height: 50px;
 }
 
-/* Subtitles */
-.homepage-subtitle {
-    font-size: 1.25em;
-    font-weight: bold;
-}
 
 
