@@ -71,6 +71,7 @@ class CaseController extends Controller
     public function adminDash()
     {
         $perpetrators = Perpetrator::all();
+        
         return view('admin')->with([
             'perpetrators' => $perpetrators
         ]);
