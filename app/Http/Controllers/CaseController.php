@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use App\Source;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,9 +72,13 @@ class CaseController extends Controller
     public function adminDash()
     {
         $perpetrators = Perpetrator::all();
+
+        $messages = Message::where('status', 'unread')->get();
+
         
         return view('admin')->with([
-            'perpetrators' => $perpetrators
+            'perpetrators' => $perpetrators,
+            'messages' => $messages->isNotEmpty() ? $messages : null
         ]);
     }
 
