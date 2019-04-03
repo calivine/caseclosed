@@ -11,9 +11,6 @@
         <div class='col-1-4'>
             <a class='run-process' href='{{ '/case/new' }}'>Create New Case</a>
         </div>
-        <div class='col-1-4'>
-
-        </div>
     </div>
     <div class='row'>
         <div class='col-3-4'>

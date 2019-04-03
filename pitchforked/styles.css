@@ -41,6 +41,10 @@ body {
     -webkit-filter: blur(0);
 }
 
+.nav-content a:hover {
+    font-size: 3rem;
+}
+
 .content {
     position: absolute;
     z-index: 1;

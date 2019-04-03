@@ -37,7 +37,7 @@ Shades(Dark to Light):
 
 body {
     background-color: #1C1C1C;
-    color: #FFFFFF;
+    color: #FFF;
     font-family: Helvetica, sans-serif;
     font-weight: normal;
 }
@@ -297,6 +297,17 @@ label {
 .alert-success {
     background-color: deepskyblue;
     height: 50px;
+}
+
+/* Small Screens */
+@media(max-width:560px) {
+    .container {
+        padding: 0;
+    }
+    #home-profile {
+        width: 100vw;
+        padding: 30px 20px;
+    }
 }
 
 
