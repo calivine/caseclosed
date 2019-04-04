@@ -19,7 +19,9 @@ class CaseController extends Controller
      * Case Closed home landing page
      */
     public function index() {
-        $perpetrator = Perpetrator::find(rand(1,3));
+        $perpetrators = Perpetrator::all();
+        $perpetrator = $perpetrators->random();
+        // $perpetrator = Perpetrator::find(rand(1,3));
 
         return view('welcome')->with(['perpetrator' => $perpetrator]);
     }
