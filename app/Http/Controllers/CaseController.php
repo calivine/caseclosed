@@ -174,10 +174,9 @@ class CaseController extends Controller
         $perpetrator = Perpetrator::find($id);
         $perpetrator->victims()->delete();
         $perpetrator->sources()->delete();
-        $perpetrator->image()->delete();
+        $perpetrator->images()->delete();
         $perpetrator->delete();
-
-
+        
         return redirect('admin')->with([
             'alert' => 'Case Deleted.'
         ]);
