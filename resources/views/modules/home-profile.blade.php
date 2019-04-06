@@ -3,11 +3,13 @@
     <p>
         {{ $perpetrator->first_name }} {{ $perpetrator->middle_name }} {{ $perpetrator->last_name }}
     </p>
-    <ul>
-        <li>
-            Date of Arrest, Death, or Other Outcome: {{ $perpetrator->arrest_date->format('j F, Y') }}
-        </li>
-    </ul>
+    @if($perpetrator->arrest_date)
+        <ul>
+            <li>
+                Date of Arrest, Death, or Other Outcome: {{ $perpetrator->arrest_date->format('j F, Y') }}
+            </li>
+        </ul>
+    @endif
     <p class='homepage-subtitle'>Known Victims</p>
     @foreach($perpetrator->victims as $victim)
         <p>
