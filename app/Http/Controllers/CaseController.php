@@ -176,7 +176,7 @@ class CaseController extends Controller
         $perpetrator->sources()->delete();
         $perpetrator->images()->delete();
         $perpetrator->delete();
-        
+
         return redirect('admin')->with([
             'alert' => 'Case Deleted.'
         ]);

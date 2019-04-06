@@ -14,9 +14,11 @@
             {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
         </p>
         <ul>
-            <li>
-                DOB: {{ $victim->date_of_birth->format('j F, Y') }}
-            </li>
+            @if($victim->date_of_birth != null)
+                <li>
+                    DOB: {{ $victim->date_of_birth->format('j F, Y') }}
+                </li>
+            @endif
             <li>
                 Gender:
                 @if($victim->gender == 'F')
