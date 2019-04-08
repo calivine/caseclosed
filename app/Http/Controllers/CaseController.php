@@ -51,8 +51,8 @@ class CaseController extends Controller
         $perpetrator = Perpetrator::find($victim->perpetrator_id);
 
         $images = $perpetrator->images;
-        $victImage = $images->firstWhere('type', 'Victim');
-        $perpImage = $images->firstWhere('type', 'Perpetrator');
+        $victImage = $images->firstWhere('type', 'victim');
+        $perpImage = $images->firstWhere('type', 'perpetrator');
 
         $sources = $perpetrator->sources;
 

@@ -10,7 +10,7 @@
             <select name='type'>
                 <option value='victim'>Victim</option>
                 <option value='perpetrator'>Perpetrator</option>
-                <option value='Other'>Other</option>
+                <option value='other'>Other</option>
             </select>
             <label for='caption'>Caption:</label>
             <input type='text' autocomplete='off' name='caption' id='caption'>
