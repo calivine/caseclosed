@@ -1,4 +1,4 @@
-<section id='home-profile'>
+<section>
     <p class='homepage-subtitle'>Perpetrator</p>
     <p>
         {{ $perpetrator->first_name }} {{ $perpetrator->middle_name }} {{ $perpetrator->last_name }}

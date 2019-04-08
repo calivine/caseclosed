@@ -42,20 +42,20 @@ body {
     font-weight: normal;
 }
 
+
 .container {
-    background-color: #393939;
-    height: 100%;
-    padding: 0 50px;
-    margin: 0;
-    width: 100vw;
+    height: 80vh;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 38rem;
 }
+
 
 #home-profile {
     height: 80vh;
-    width: 50vw;
+    padding: 2rem;
     margin: 0 auto;
-    padding: 30px 53px;
-    background-color: #4C4C4C;
+    max-width: 38rem;
 }
 
 a {
