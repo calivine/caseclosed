@@ -14,37 +14,40 @@
     @stack('head')
 </head>
 <body>
-@if(session('alert'))
-    <div class='alert-success'>
-        {{ session('alert') }}
-    </div>
-@endif
+<div class='pageWrapper'>
+    @if(session('alert'))
+        <div class='alert-success'>
+            {{ session('alert') }}
+        </div>
+    @endif
 
-<header>
-    @include('modules.title')
-    @include('modules.nav')
-</header>
+    <header>
+        @include('modules.title')
+        @include('modules.nav')
+    </header>
 
-@if ($errors->any())
-    <div class='alert-error'>
-        @foreach ($errors->all() as $error)
-            <li>
-                {{ $error }}
-            </li>
-        @endforeach
-    </div>
-@endif
+    @if ($errors->any())
+        <div class='alert-error'>
+            @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+            @endforeach
+        </div>
+    @endif
 
-<main>
-    @yield('content')
-</main>
+    <main>
+        @yield('content')
+    </main>
 
-<footer>
-    <a href='{{ url('https://www.pitchforked.net') }}'>Pitchforked</a>
-    &copy; {{ date('Y') }}
-    A Beyond The Looking Glass Project
-    <a href='{{ '/login' }}'>Login</a>
-</footer>
+    <footer>
+        <a href='{{ url('https://www.pitchforked.net') }}'>Pitchforked</a>
+        &copy; {{ date('Y') }}
+        A Beyond The Looking Glass Project
+        <a href='{{ '/login' }}'>Login</a>
+    </footer>
+</div>
+
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}
 <script src='{{ 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' }}'

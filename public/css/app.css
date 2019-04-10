@@ -43,6 +43,12 @@ body {
 }
 
 
+.pageWrapper {
+    position: relative;
+    min-height: 100vh;
+}
+
+
 .container {
     height: 80vh;
     padding: 2rem;
