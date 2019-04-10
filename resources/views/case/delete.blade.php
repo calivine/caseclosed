@@ -13,5 +13,5 @@
         {{ csrf_field() }}
         <input type='submit' value='Delete'>
     </form>
-    <a href='/case-dashboard/{{ $perpetrator->id }}'>Cancel and Return</a>
+    <a href='{{ '/admin' }}'>Cancel and Return</a>
 @endsection

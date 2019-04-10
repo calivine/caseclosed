@@ -3,7 +3,7 @@
 @section('content')
     <div class='row'>
         <div class='col-3-3'>
-            <form class='add-input' method='POST' action='{{ '/victim/' . $id }}'>
+            <form class='add-input' method='POST' action='{{ '/' . $id . '/create' }}'>
                 {{ csrf_field() }}
                 <fieldset>
                     <label for='victim_name'>Victim Name:</label>

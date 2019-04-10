@@ -18,7 +18,7 @@
                 @foreach($perpetrators as $perpetrator)
                     <li class='nameplate'>
                         <a class='nameplate-contents' href='{{ '/case-dashboard/' . $perpetrator->id }}'>{{ $perpetrator->first_name }} {{ $perpetrator->last_name }}</a>
-                        <a class='nameplate-icon' href='#'>
+                        <a class='nameplate-icon' href='{{ '/case/'. $perpetrator->id . '/edit' }}'>
                             <i class='fas fa-user-edit'></i>
                         </a>
                         <a class='nameplate-contents' href='{{ '/case/' . $perpetrator->id . '/delete' }}'>

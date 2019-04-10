@@ -5,6 +5,7 @@
         <div class='col-3-3'>
             <form method='POST' action='{{ '/victim/' . $victim->id }}'>
                 {{ csrf_field() }}
+                {{ method_field('PUT')}}
                 <fieldset>
                     <label for='victim_name'>Victim Name:</label>
                     <input type='text' autocomplete='off' name='victim_name' id='victim_name' value='{{ $victim->first_name }} {{ $victim->last_name }}'>

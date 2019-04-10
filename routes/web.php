@@ -49,6 +49,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/case/new', 'CaseController@newCase');
     Route::post('/create', 'CaseController@create');
 
+    # UPDATE Case record
+    Route::get('/case/{id}/edit', 'CaseController@edit');
+    Route::put('/case/{id}', 'CaseController@update');
+
     # DELETE case
     Route::get('/case/{id}/delete', 'CaseController@deleteCase');
     Route::delete('/case/{id}', 'CaseController@destroyCase');
@@ -59,7 +63,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     # CREATE new Victim
     Route::get('/victim/{id}/new', 'CaseController@newVictim');
-    Route::post('/victim/{id}', 'CaseController@processVictim');
+    Route::post('/{id}/create', 'CaseController@processVictim');
 
     # UPDATE Victim
     Route::get('/victim/{id}/edit', 'CaseController@editVictim');
