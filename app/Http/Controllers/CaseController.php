@@ -20,10 +20,10 @@ class CaseController extends Controller
      */
     public function index() {
         $perpetrators = Perpetrator::all();
-        // $perpetrator = $perpetrators->random();
-        // $perpetrator = Perpetrator::find(rand(1,3));
 
-        return view('welcome')->with(['perpetrator' => $perpetrators->random()]);
+        $victim = $perpetrators->random()->victims->random();
+        
+        return view('welcome')->with(['victim' => $victim]);
     }
 
     /*
