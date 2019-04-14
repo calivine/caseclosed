@@ -62,16 +62,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/source/{id}', 'CaseController@processSource');
 
     # CREATE new Victim
-    Route::get('/victim/{id}/new', 'CaseController@newVictim');
-    Route::post('/{id}/create', 'CaseController@processVictim');
+    Route::get('/victim/{id}/new', 'VictimController@newVictim');
+    Route::post('/{id}/create', 'VictimController@storeVictim');
 
     # UPDATE Victim
-    Route::get('/victim/{id}/edit', 'CaseController@editVictim');
-    Route::put('/victim/{id}', 'CaseController@updateVictim');
+    Route::get('/victim/{id}/edit', 'VictimController@editVictim');
+    Route::put('/victim/{id}', 'VictimController@updateVictim');
 
     # DELETE Victim
-    Route::get('/victim/{id}/delete', 'CaseController@deleteVictim');
-    Route::delete('/victim/{id}', 'CaseController@destroyVictim');
+    Route::get('/victim/{id}/delete', 'VictimController@deleteVictim');
+    Route::delete('/victim/{id}', 'VictimController@destroyVictim');
 
     # CREATE new Image
     Route::get('/image/{id}/new', 'CaseController@newImage');
@@ -79,6 +79,12 @@ Route::group(['middleware' => 'auth'], function() {
 
     # Display case dashboard
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');
+
+    # Display message inbox
+    Route::get('/messages/inbox', 'MessageController@inbox');
+
+    # Display message
+    Route::get('/messages/{id}', 'MessageController@displayMessage');
 });
 
 Auth::routes();

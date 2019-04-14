@@ -116,9 +116,8 @@ a.nameplate-icon {
 }
 
 .container {
-    padding: 2rem;
     margin: 0 auto;
-    width: 38rem;
+    width: 50vw;
 }
 
 .home-profile {
@@ -131,11 +130,6 @@ a.nameplate-icon {
 .profile {
     width: 76rem;
     margin: 0;
-}
-
-.about-section {
-    margin: 0 auto;
-    width: 50vw;
 }
 
 /* Button Modules */

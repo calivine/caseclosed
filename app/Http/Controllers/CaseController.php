@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Message;
-use App\Source;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Perpetrator;
 use App\Victim;
-use App\Image;
-use App\User;
+use App\Actions\Victim\GetVictim;
+use App\Actions\Perpetrator\StoreCase;
+use App\Actions\Perpetrator\UpdateCase;
+use App\Actions\Perpetrator\DestroyCase;
+use App\Actions\Source\StoreSource;
+use App\Actions\Image\StoreImage;
+
 
 class CaseController extends Controller
 {
@@ -18,12 +22,11 @@ class CaseController extends Controller
      * /home
      * Case Closed home landing page
      */
-    public function index() {
-        $perpetrators = Perpetrator::all();
+    public function index()
+    {
+        $action = new GetVictim();
 
-        $victim = $perpetrators->random()->victims->random();
-        
-        return view('welcome')->with(['victim' => $victim]);
+        return view('welcome')->with($action->rda);
     }
 
     /*
@@ -32,8 +35,10 @@ class CaseController extends Controller
      *  Display names of all the victims
      *  in the database
      */
-    public function display() {
+    public function display()
+    {
         $victim = Victim::orderBy('last_name')->get();
+
         $victims = $victim->toArray();
 
         return view('modules.list')->with(['victims' => $victims]);
@@ -86,7 +91,6 @@ class CaseController extends Controller
 
         $messages = Message::where('status', 'unread')->get();
 
-        
         return view('admin')->with([
             'perpetrators' => $perpetrators,
             'messages' => $messages->isNotEmpty() ? $messages : null
@@ -130,33 +134,9 @@ class CaseController extends Controller
             'perp_name' => 'required'
         ]);
 
-        $perpetrator = new Perpetrator();
-        $name = explode(" ", $request->input('perp_name'));
-        $perpetrator->first_name = $name[0];
-        if (count($name) > 2) {
-            $perpetrator->middle_name = $name[1];
-            $perpetrator->last_name = $name[2];
-        } else {
-            $perpetrator->last_name = $name[1];
-        }
-        if ($request->has('perp_arrest')) {
-            $perpetrator->arrest_date = $request->input('perp_arrest');
-        }
-        if ($request->has('perp_dob')) {
-            $perpetrator->date_of_birth = $request->input('perp_dob');
-        }
-        if ($request->has('perp_death')) {
-            $perpetrator->date_of_death = $request->input('perp_death');
-        }
-        if ($request->has('perp_details')) {
-            $perpetrator->description = $request->input('perp_details');
-        }
+        $action = new StoreCase($request);
 
-        $perpetrator->save();
-
-        return view('case-dashboard')->with([
-            'perpetrator' => $perpetrator
-        ]);
+        return view('case-dashboard')->with($action->rda);
     }
 
     /*
@@ -179,31 +159,8 @@ class CaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        # Get perpetrator record to update
-        $perpetrator = Perpetrator::find($id);
-        if ($request->has('perp_name')) {
-            $name = explode(" ", $request->input('perp_name'));
-            $perpetrator->first_name = $name[0];
-            if (count($name) > 2) {
-                $perpetrator->middle_name = $name[1];
-                $perpetrator->last_name = $name[2];
-            } else {
-                $perpetrator->last_name = $name[1];
-            }
-        }
-        if ($request->has('dob')) {
-            $perpetrator->date_of_birth = $request->input('dob');
-        }
-        if ($request->has('arrest')) {
-            $perpetrator->arrest_date = $request->input('arrest');
-        }
-        if ($request->has('death')) {
-            $perpetrator->date_of_death = $request->input('death');
-        }
-        if ($request->has('details')) {
-            $perpetrator->description = $request->input('details');
-        }
-        $perpetrator->save();
+        new UpdateCase($request, $id);
+
         return redirect('admin')->with([
             'alert' => 'Case/Perpetrator Updated.'
         ]);
@@ -230,11 +187,7 @@ class CaseController extends Controller
      */
     public function destroyCase($id)
     {
-        $perpetrator = Perpetrator::find($id);
-        $perpetrator->victims()->delete();
-        $perpetrator->sources()->delete();
-        $perpetrator->images()->delete();
-        $perpetrator->delete();
+        new DestroyCase($id);
 
         return redirect('admin')->with([
             'alert' => 'Case Deleted.'
@@ -266,156 +219,10 @@ class CaseController extends Controller
             'source' => 'required'
         ]);
 
-        $perpetrator = Perpetrator::find($id);
+        $action = new StoreSource($request, $id);
 
-        $source = new Source;
-        $source->url = $request->input('source');
-
-        $source->perpetrator()->associate($perpetrator);
-
-        $source->save();
-
-        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
+        return redirect()->route('caseDash', ['id' => $action->rda['id']])->with([
             'alert' => 'Added source'
-        ]);
-    }
-
-    /*
-     * GET
-     * /victim/{id}/new
-     * Display form to create new victim record
-     */
-    public function newVictim($id)
-    {
-        return view('victim.create')->with([
-            'id' => $id
-        ]);
-    }
-
-    /*
-     * POST
-     * /victim/{id}
-     * Process the input from /add-victim and save to database
-     */
-    public function processVictim(Request $request, $id)
-    {
-        $request->validate([
-            'victim_name' => 'required',
-            'incident_date' => 'required',
-            'cause_of_death' => 'required',
-            'gender' => 'required'
-        ]);
-
-        $perpetrator = Perpetrator::find($id);
-        $victim = new Victim;
-
-        // Split victim name input into First Middle Last
-        $name = explode(" ", $request->input('victim_name'));
-        $victim->first_name = $name[0];
-        if (count($name) > 2) {
-            $victim->middle_name = $name[1];
-            $victim->last_name = $name[2];
-        } else {
-            $victim->last_name = $name[1];
-        }
-        $victim->gender = $request->input('gender');
-
-        $victim->cause_of_death = $request->input('cause_of_death');
-        if ($request->has('dob')) {
-            $victim->date_of_birth = $request->input('dob');
-        }
-        if ($request->has('incident_date') or $request->has('details')) {
-
-            if ($request->has('incident_date')) {
-                $victim->incident_date = $request->input('incident_date');
-            }
-            if ($request->has('details')) {
-                $victim->description = $request->input('details');
-            }
-        }
-        $victim->perpetrator()->associate($perpetrator);
-        $victim->save();
-
-        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
-            'alert' => 'Added new Victim record.'
-        ]);
-
-    }
-
-    /*
-     * GET
-     * Update Victim info
-     * /victim/{id}/edit
-     */
-    public function editVictim($id)
-    {
-        $victim = Victim::find($id);
-        return view('victim.update')->with([
-            'victim' => $victim
-        ]);
-    }
-
-    /*
-     * PUT
-     * /victim/{id}
-     * Process the input for updating victim information
-     */
-    public function updateVictim(Request $request, $id)
-    {
-        $victim = Victim::find($id);
-        if ($request->has('victim_name')) {
-            $name = explode(" ", $request->input('victim_name'));
-            $victim->first_name = $name[0];
-            if (count($name) > 2) {
-                $victim->middle_name = $name[1];
-                $victim->last_name = $name[2];
-            } else {
-                $victim->last_name = $name[1];
-            }
-        }
-        if ($request->has('dob')) {
-            $victim->date_of_birth = $request->input('dob');
-        }
-        if ($request->has('incident_date')) {
-            $victim->incident_date = $request->input('incident_date');
-        }
-        if ($request->has('details')) {
-            $victim->description = $request->input('details');
-        }
-        if ($request->has('location')) {
-            $victim->location = $request->input('location');
-        }
-        $victim->save();
-        return redirect()->route('caseDash', ['id' => $victim->perpetrator->id])->with([
-            'alert' => 'Victim Updated'
-        ]);
-    }
-
-    /*
-     * GET
-     * /victim/{id}/delete
-     * Display delete victim record confirmation
-     */
-    public function deleteVictim($id) {
-        $victim = Victim::find($id);
-
-        return view('victim.delete')->with([
-            'victim' => $victim
-        ]);
-    }
-
-    /*
-     * Complete the delete process
-     * DELETE
-     * /victim/{id}
-     */
-    public function destroyVictim($id) {
-        $victim = Victim::find($id);
-        $caseID = $victim->perpetrator->id;
-        $victim->delete();
-
-        return redirect()->route('caseDash', ['id' => $caseID])->with([
-            'alert' => 'Victim Deleted.'
         ]);
     }
 
@@ -443,18 +250,10 @@ class CaseController extends Controller
         $request->validate([
             'url' => 'required'
         ]);
-        $perpetrator = Perpetrator::find($id);
 
-        $image = new Image;
-        $image->url = $request->input('url');
-        $image->type = $request->input('type');
-        if ($request->has('caption')) {
-            $image->caption = $request->input('caption');
-        }
-        $image->perpetrator()->associate($perpetrator);
+        $action = new StoreImage($request, $id);
 
-        $image->save();
-        return redirect()->route('caseDash', ['id' => $perpetrator->id])->with([
+        return redirect()->route('caseDash', ['id' => $action->rda['id']])->with([
             'alert' => 'Image Added.'
         ]);
     }

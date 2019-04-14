@@ -4,7 +4,7 @@
     <h1 class='subtitle'>Admin Portal</h1>
     <div class='row'>
         @if ($messages != null)
-            <h2>Unread Messages!</h2>
+            <h2><a href='{{ '/messages/inbox' }}'>Unread Messages!</a></h2>
         @endif
     </div>
     <div class='row'>
