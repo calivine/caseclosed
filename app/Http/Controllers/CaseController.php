@@ -235,6 +235,7 @@ class CaseController extends Controller
     {
         // Display form to add images related to Perpetrator
         $perpetrator = Perpetrator::find($id);
+
         return view('image.create')->with([
             'perpetrator' => $perpetrator
         ]);

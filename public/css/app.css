@@ -116,12 +116,12 @@ a.nameplate-icon {
 }
 
 .container {
+    text-align: center;
     margin: 0 auto;
     width: 50vw;
 }
 
 .home-profile {
-    height: 80vh;
     padding: 2rem;
     margin: 0 auto;
     max-width: 38rem;

@@ -5,6 +5,9 @@
     <p>
         {{ $victim->description }}
     </p>
+    @if (!is_null($image))
+        <img src='{{ $image->url }}' alt='{{ $image->caption }}'>
+    @endif
 </section>
 
 

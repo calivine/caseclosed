@@ -12,8 +12,20 @@ class GetVictim
 
         $victim = $perpetrators->random()->victims->random();
 
+        $images = $victim->perpetrator->images;
+
+        $homeImage = null;
+
+        foreach($images as $image) {
+            if (str_contains($image->caption, $victim->last_name)) {
+                $homeImage = $image;
+                break;
+            }
+        }
+
         $this->rda = [
-            'victim' => $victim
+            'victim' => $victim,
+            'image' => $homeImage ?? null
         ];
     }
 }

@@ -62,9 +62,13 @@ class MessageController extends Controller
     public function displayMessage($id)
     {
         $message = Message::find($id);
-        if ($message->status === 'unread') {
+
+        if (str_is('unread', $message->status)) {
             $message->status = 'read';
+
+            $message->save();
         }
+
         return view('message')->with([
             'message' => $message
         ]);

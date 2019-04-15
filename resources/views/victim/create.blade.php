@@ -18,7 +18,7 @@
                         <option value='M'>Male</option>
                     </select>
 
-                    <label for='incident_date'>Date of Disappearance/Incident:</label>
+                    <label for='incident_date'>Date of Disappearance/Incident:(format:YYYY-MM-DD)</label>
                     <input type='text' autocomplete='off' name='incident_date' id='incident_date'>
 
                     <label for='cause_of_death'>Cause of Death:</label>

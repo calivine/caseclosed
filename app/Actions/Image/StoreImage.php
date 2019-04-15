@@ -12,11 +12,15 @@ class StoreImage
         $perpetrator = Perpetrator::find($id);
 
         $image = new Image;
+
         $image->url = $request->input('url');
+
         $image->type = $request->input('type');
+
         if ($request->has('caption')) {
             $image->caption = $request->input('caption');
         }
+
         $image->perpetrator()->associate($perpetrator);
 
         $image->save();
