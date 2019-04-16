@@ -113,6 +113,7 @@ a.nameplate-icon {
 .pageWrapper {
     position: relative;
     min-height: 100vh;
+    padding-left: 20px;
 }
 
 .container {
@@ -253,6 +254,9 @@ a.nameplate-icon {
         width: 100vw;
         padding: 30px 20px;
         font-size:2rem;
+    }
+    .pageWrapper {
+        padding: 0;
     }
 }
 
