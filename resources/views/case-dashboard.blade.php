@@ -36,6 +36,9 @@
                         </a>
                     </li>
                 @endforeach
+                @foreach($perpetrator->sources as $source)
+                    <li><a href='{{ $source->url }}'>{{ $source->url }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>

@@ -132,6 +132,10 @@ a.nameplate-icon {
     margin: 0;
 }
 
+.cases {
+    padding: 0;
+}
+
 /* Button Modules */
 .btn {
     display: block;
