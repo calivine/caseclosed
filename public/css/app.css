@@ -157,6 +157,7 @@ a.nameplate-icon {
     background: #8DC63F;
     border-color: #8DC63F;
     color: white;
+    width: 250px;
 }
 
 .btn-primary:hover {

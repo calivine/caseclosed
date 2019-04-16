@@ -44,7 +44,9 @@
         <a href='{{ url('https://www.pitchforked.net') }}'>Pitchforked</a>
         &copy; {{ date('Y') }}
         A Beyond The Looking Glass Project
-        <a href='{{ '/login' }}'>Login</a>
+        @if(Auth::guest())
+            <a href='{{ '/login' }}'>Login</a>
+        @endif
     </footer>
 </div>
 
