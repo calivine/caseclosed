@@ -18,7 +18,7 @@
         <input id="email" type="email" name="email" value="{{ old('email') }}" required>
 
 
-        <label for="password">{{ __('Password') }}</label>
+        <label for="password">{{ __('Password') }} (6 character minimum)</label>
 
 
         <input id="password" type="password" name="password" required>
