@@ -47,6 +47,8 @@
         @if(Auth::guest())
             <a href='{{ '/login' }}'>Login</a>
         @endif
+        <a href='{{ url('https://github.com/calivine/caseclosed') }}'>Source Code</a>
+        <a href='{{ url('https://github.com/calivine/caseclosed/blob/master/api.md') }}'>API</a>
     </footer>
 </div>
 
