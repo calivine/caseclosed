@@ -3,17 +3,15 @@
 
 https://caseclosed.pitchforked.net
 
-## API Routes
-GET api/perpetrators
-* Response is a collection of available perpetrator data.
-
 ## Release History
+* 0.1.1
+    * Added API resource for all Perpetrators data.
 * 0.1.0
-    * Added API resource for Perpetrator data
+    * Added API resource for Perpetrator data.
 * 0.0.3
-    * Changed homepage content layout
+    * Changed homepage content layout.
 * 0.0.2
-    * Added commenting and feedback
+    * Added commenting and feedback.
 * 0.0.1
     * First published version.
     

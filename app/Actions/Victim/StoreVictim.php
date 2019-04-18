@@ -24,18 +24,21 @@ class StoreVictim
         $victim->gender = $request->input('gender');
 
         $victim->cause_of_death = $request->input('cause_of_death');
-        if ($request->has('dob')) {
-            $victim->date_of_birth = $request->input('dob');
+        if ($request->has('date_of_birth')) {
+            $victim->date_of_birth = $request->input('date_of_birth');
         }
         if ($request->has('incident_date') or $request->has('details')) {
 
             if ($request->has('incident_date')) {
                 $victim->incident_date = $request->input('incident_date');
             }
-            if ($request->has('details')) {
-                $victim->description = $request->input('details');
+            if ($request->has('description')) {
+                $victim->description = $request->input('description');
             }
         }
+
+        $victim->location = $request->input('location');
+
         $victim->perpetrator()->associate($perpetrator);
         $victim->save();
 

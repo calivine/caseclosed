@@ -13,16 +13,16 @@
                     <input type='text' autocomplete='off' name='perp_name' id='perp_name'>
 
                     <label for='perp_dob'>Date of Birth:(format:YYYY-MM-DD)</label>
-                    <input type='text' autocomplete='off' name='perp_dob' id='perp_dob'>
+                    <input type='text' autocomplete='off' name='date_of_birth' id='perp_dob'>
 
                     <label for='perp_arrest'>Date of Arrest:(format:YYYY-MM-DD)</label>
-                    <input type='text' autocomplete='off' name='perp_arrest' id='perp_arrest'>
+                    <input type='text' autocomplete='off' name='arrest_date' id='perp_arrest'>
 
                     <label for='perp_death'>Date of Death:(format:YYYY-MM-DD)</label>
-                    <input type='text' autocomplete='off' name='perp_death' id='perp_death'>
+                    <input type='text' autocomplete='off' name='date_of_death' id='perp_death'>
 
-                    <label for='perp_details'>Perpetrator Details</label>
-                    <input type='text' autocomplete='off' name='perp_details' id='perp_details'>
+                    <label for='description'>Perpetrator Details</label>
+                    <input type='text' autocomplete='off' name='description' id='description'>
                 </fieldset>
                 <button type='submit' class='btn btn-primary'>Save</button>
             </form>

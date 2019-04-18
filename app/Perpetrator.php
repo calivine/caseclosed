@@ -30,5 +30,6 @@ class Perpetrator extends Model
     protected $dates = [
         'date_of_birth',
         'arrest_date',
+        'date_of_death'
     ];
 }

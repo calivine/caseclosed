@@ -20,17 +20,17 @@ class UpdateCase
                 $perpetrator->last_name = $name[1];
             }
         }
-        if ($request->has('dob')) {
-            $perpetrator->date_of_birth = $request->input('dob');
+        if ($request->has('date_of_birth')) {
+            $perpetrator->date_of_birth = $request->input('date_of_birth');
         }
-        if ($request->has('arrest')) {
-            $perpetrator->arrest_date = $request->input('arrest');
+        if ($request->has('arrest_date')) {
+            $perpetrator->arrest_date = $request->input('arrest_date');
         }
-        if ($request->has('death')) {
-            $perpetrator->date_of_death = $request->input('death');
+        if ($request->has('date_of_death')) {
+            $perpetrator->date_of_death = $request->input('date_of_death');
         }
-        if ($request->has('details')) {
-            $perpetrator->description = $request->input('details');
+        if ($request->has('description')) {
+            $perpetrator->description = $request->input('description');
         }
         $perpetrator->save();
     }

@@ -19,14 +19,14 @@ class UpdateVictim
                 $victim->last_name = $name[1];
             }
         }
-        if ($request->has('dob')) {
-            $victim->date_of_birth = $request->input('dob');
+        if ($request->has('date_of_birth')) {
+            $victim->date_of_birth = $request->input('date_of_birth');
         }
         if ($request->has('incident_date')) {
             $victim->incident_date = $request->input('incident_date');
         }
-        if ($request->has('details')) {
-            $victim->description = $request->input('details');
+        if ($request->has('description')) {
+            $victim->description = $request->input('description');
         }
         if ($request->has('location')) {
             $victim->location = $request->input('location');

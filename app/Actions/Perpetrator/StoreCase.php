@@ -17,17 +17,17 @@ class StoreCase
         } else {
             $perpetrator->last_name = $name[1];
         }
-        if ($request->has('perp_arrest')) {
-            $perpetrator->arrest_date = $request->input('perp_arrest');
+        if ($request->has('arrest_date')) {
+            $perpetrator->arrest_date = $request->input('arrest_date');
         }
-        if ($request->has('perp_dob')) {
-            $perpetrator->date_of_birth = $request->input('perp_dob');
+        if ($request->has('date_of_birth')) {
+            $perpetrator->date_of_birth = $request->input('date_of_birth');
         }
-        if ($request->has('perp_death')) {
-            $perpetrator->date_of_death = $request->input('perp_death');
+        if ($request->has('date_of_death')) {
+            $perpetrator->date_of_death = $request->input('date_of_death');
         }
-        if ($request->has('perp_details')) {
-            $perpetrator->description = $request->input('perp_details');
+        if ($request->has('description')) {
+            $perpetrator->description = $request->input('description');
         }
 
         $perpetrator->save();

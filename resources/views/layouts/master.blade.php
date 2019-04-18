@@ -41,14 +41,7 @@
     </main>
 
     <footer>
-        <a href='{{ url('https://www.pitchforked.net') }}'>Pitchforked</a>
-        &copy; {{ date('Y') }}
-        A Beyond The Looking Glass Project
-        @if(Auth::guest())
-            <a href='{{ '/login' }}'>Login</a>
-        @endif
-        <a href='{{ url('https://github.com/calivine/caseclosed') }}'>Source Code</a>
-        <a href='{{ url('https://github.com/calivine/caseclosed/blob/master/api.md') }}'>API</a>
+        @include('modules.footer')
     </footer>
 </div>
 

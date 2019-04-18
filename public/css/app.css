@@ -91,6 +91,11 @@ nav li {
     padding: 10px;
 }
 
+.footerBody>ul>li {
+    display: inline-block;
+    padding: 7.5px;
+}
+
 
 /* Form Styles */
 form {
@@ -119,6 +124,10 @@ a.nameplate-icon {
     text-align: center;
     margin: 0 auto;
     width: 50vw;
+}
+
+.aboutContent {
+    text-align: left;
 }
 
 .home-profile {
