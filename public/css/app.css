@@ -10,7 +10,7 @@ body {
     font-weight: normal;
 }
 
-a {
+a, a.nameplate-icon {
     color: #acacac;
     text-decoration: none;
 }
@@ -34,6 +34,19 @@ footer {
     width: 100%;
     height: 55px;
     line-height: 60px; /* Vertically center the text there */
+}
+
+/* Form Styles */
+form {
+    align-items: start;
+    margin: 25px auto;
+    padding: 15px;
+    /* Width of form */
+    width: 500px;
+}
+
+form.add-input>input {
+    width: 500px;
 }
 
 header {
@@ -73,6 +86,10 @@ ul li {
     list-style-type: none;
 }
 
+.case-list>li {
+    font-size: 2rem;
+}
+
 /* Nav Modules */
 nav {
     background-color: #1C1C1C;
@@ -94,25 +111,6 @@ nav li {
 .footerBody>ul>li {
     display: inline-block;
     padding: 7.5px;
-}
-
-
-/* Form Styles */
-form {
-    align-items: start;
-    margin: 25px auto;
-    padding: 15px;
-    /* Width of form */
-    width: 500px;
-}
-
-form.add-input>input {
-    width: 500px;
-}
-
-a.nameplate-icon {
-    text-decoration: none;
-    color: aliceblue;
 }
 
 .pageWrapper {
@@ -221,10 +219,6 @@ a.nameplate-icon {
     text-decoration: underline;
 }
 
-.case-list>li {
-    font-size: 2rem;
-}
-
 /* Alert Styles */
 .alert-error {
     background-color: #e3342f;
@@ -254,10 +248,12 @@ a.nameplate-icon {
 }
 
 
-/* Small Screens */
-@media(max-device-width:560px), (max-width: 560px) {
+/* Mobile */
+@media(max-device-width:880px), (max-width: 880px) {
     .container {
         padding: 0;
+        width: 100vw;
+        font-size: 1.5rem;
     }
     .home-profile {
         width: 100vw;
@@ -267,6 +263,24 @@ a.nameplate-icon {
     .pageWrapper {
         padding: 0;
     }
+}
+
+/* Small Screens */
+@media(max-device-width: 1265px), (max-width: 1265px) and (min-width: 881px) {
+    .container {
+        width: 100vw;
+        background-color: #1C1C1C;
+        padding: 5px;
+    }
+    .aboutContent {
+        background-color: #1C1C1C;
+        padding: 5px;
+    }
+
+}
+
+@media(min-device-width: 1266px), (min-width: 1266px) {
+
 }
 
 
