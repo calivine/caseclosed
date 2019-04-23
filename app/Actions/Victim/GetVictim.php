@@ -10,8 +10,11 @@ class GetVictim
     {
         $victim = Victim::all()->random();
 
+        $profileImage = $victim->images->first();
+
         $this->rda = [
-            'victim' => $victim
+            'victim' => $victim,
+            'profileImage' => $profileImage
         ];
     }
 }

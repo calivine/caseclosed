@@ -5,9 +5,9 @@
     <p>
         {{ $victim->description }}
     </p>
-    @foreach($victim->images as $image)
-        <img src='{{ $image->url }}' alt='{{ $image->caption }}'>
-    @endforeach
+    @if(!is_null($profileImage))
+        <img src='{{ $profileImage->url }}' alt='{{ $profileImage->caption }}'>
+    @endif
 </section>
 
 

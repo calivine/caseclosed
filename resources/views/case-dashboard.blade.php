@@ -42,4 +42,36 @@
             </ul>
         </div>
     </div>
+    <div class='image-row'>
+        @foreach($perpetrator->images as $image)
+            <div class='image-container'>
+                <img src='{{ $image->url }}'
+                     alt='{{ $image->caption }}'
+                     width='150px'
+                     height='200px'
+                >
+                <div>
+                    <a href='{{ '/image/' . $image->id . '/delete' }}' class='image-link'>
+                        <i class='fas fa-trash'></i>
+                    </a>
+                </div>
+            </div>
+        @endforeach
+        @foreach($perpetrator->victims as $victim)
+            @foreach($victim->images as $image)
+                <div class='image-container'>
+                    <img src='{{ $image->url }}'
+                         alt='{{ $image->caption }}'
+                         width='150px'
+                         height='200px'
+                    >
+                    <div>
+                        <a href='{{ '/image/' . $image->id . '/delete' }}' class='image-link'>
+                            <i class='fas fa-trash'></i>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        @endforeach
+    </div>
 @endsection

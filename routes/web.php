@@ -77,6 +77,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/image/{id}/new', 'CaseController@newImage');
     Route::post('/image/{id}', 'CaseController@processImage');
 
+    # DELETE Image
+    Route::get('/image/{id}/delete', 'CaseController@deleteImage');
+    Route::delete('/image/{id}', 'CaseController@destroyImage');
+
     # Display case dashboard
     Route::get('/case-dashboard/{id}', 'CaseController@displayDash')->name('caseDash');
 

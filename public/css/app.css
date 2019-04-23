@@ -247,6 +247,19 @@ nav li {
     width: 100px;
 }
 
+.image-row {
+    width: 100%;
+}
+
+.image-container {
+    display: inline-block;
+}
+
+.confirm-delete-content {
+    margin: 0 auto;
+    width: 250px;
+}
+
 
 /* Mobile */
 @media(max-device-width:880px), (max-width: 880px) {

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Image\DestroyImage;
 use App\Message;
 use Illuminate\Http\Request;
 use App\Perpetrator;
 use App\Victim;
+use App\Image;
 use App\Actions\Victim\GetVictim;
 use App\Actions\Perpetrator\StoreCase;
 use App\Actions\Perpetrator\UpdateCase;
@@ -239,6 +241,34 @@ class CaseController extends Controller
 
         return redirect()->route('caseDash', ['id' => $action->rda['id']])->with([
             'alert' => 'Image Added.'
+        ]);
+    }
+
+    /*
+     * GET
+     * /image/{id}/delete
+     * Display delete confirmation page
+     */
+    public function deleteImage($id) {
+
+        $image = Image::find($id);
+
+        return view('image.delete')->with([
+            'image' => $image
+        ]);
+    }
+
+    /*
+     * DELETE
+     * /image/{id}
+     * Delete process for Image
+     */
+    public function destroyImage($id) {
+
+        $action = new DestroyImage($id);
+
+        return redirect()->route('caseDash', ['id' => $action->rda['caseID']])->with([
+            'alert' => 'Image Deleted.'
         ]);
     }
     /*
