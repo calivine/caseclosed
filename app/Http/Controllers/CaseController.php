@@ -54,26 +54,10 @@ class CaseController extends Controller
 
         $perpetrator = Perpetrator::find($victim->perpetrator_id);
 
-        $images = $perpetrator->images;
-        foreach ($images as $image) {
-            if (str_contains($image->caption, $victim->last_name)) {
-                $victImage = $image;
-                break;
-            }
-            else {
-                $victImage = null;
-            }
-        }
-
-        $perpImage = $images->firstWhere('type', 'perpetrator');
-
         $sources = $perpetrator->sources;
 
         return view('case.profile')->with([
             'victim' => $victim,
-            'victImage' => $victImage ?? null,
-            'perpImage' => $perpImage ?? null,
-
             'sources' => $sources
         ]);
     }

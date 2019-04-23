@@ -2,30 +2,16 @@
 
 namespace App\Actions\Victim;
 
-use App\Perpetrator;
+use App\Victim;
 
 class GetVictim
 {
     public function __construct()
     {
-        $perpetrators = Perpetrator::all();
-
-        $victim = $perpetrators->random()->victims->random();
-
-        $images = $victim->perpetrator->images;
-
-        $homeImage = null;
-
-        foreach($images as $image) {
-            if (str_contains($image->caption, $victim->last_name)) {
-                $homeImage = $image;
-                break;
-            }
-        }
+        $victim = Victim::all()->random();
 
         $this->rda = [
-            'victim' => $victim,
-            'image' => $homeImage ?? null
+            'victim' => $victim
         ];
     }
 }

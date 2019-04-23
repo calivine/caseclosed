@@ -21,7 +21,14 @@ class StoreImage
             $image->caption = $request->input('caption');
         }
 
-        $image->perpetrator()->associate($perpetrator);
+        if ($request->type == 'perpetrator') {
+            $image->imageable_id = $perpetrator->id;
+            $image->imageable_type = 'App\Perpetrator';
+        }
+        else if ($request->type == 'victim') {
+            $image->imageable_id = $request->input('victim');
+            $image->imageable_type = 'App\Victim';
+        }
 
         $image->save();
 

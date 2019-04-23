@@ -15,16 +15,10 @@ class Perpetrator extends Model
     {
         return $this->hasMany('App\Source');
     }
-    /*
-    public function details()
-    {
-        return $this->belongsTo('App\Detail');
-    }
-    */
 
     public function images()
     {
-        return $this->hasMany('App\Image');
+        return $this->morphMany('App\Image', 'imageable');
     }
 
     protected $dates = [

@@ -8,12 +8,13 @@
                     <h2>
                         {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
                     </h2>
-                    @if($victImage != null)
-                        <img src='{{ $victImage->url }}'
-                             alt='Victim profile picture'
+                    @foreach($victim->images as $image)
+                        <img src='{{ $image->url }}'
+                             alt='{{ $image->caption }}'
                              width='400px'
-                             height='450px'>
-                    @endif
+                             height='450px'
+                        >
+                    @endforeach
                 </header>
                 <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
                 <p>
@@ -39,10 +40,13 @@
                 <li>
                     Crime commited by: {{ $victim->perpetrator->first_name }} {{ $victim->perpetrator->last_name }}
                 </li>
-                @if($perpImage != null)
-                    <img src='{{ $perpImage->url }}'
-                         alt='Perpetrator picture' width='350px'>
-                @endif
+                @foreach($victim->perpetrator->images as $image)
+                    <img src='{{ $image->url }}'
+                         alt='{{ $image->caption }}'
+                         width='400px'
+                         height='450px'
+                    >
+                @endforeach
                 <h4>
                     Victim(s)
                 </h4>
