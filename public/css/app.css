@@ -277,6 +277,10 @@ nav li {
     border-bottom-color: #2779bd;
 }
 
+.minimal-text-input:focus {
+    border-bottom-color: #2779bd;
+}
+
 
 
 
