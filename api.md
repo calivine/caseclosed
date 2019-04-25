@@ -21,3 +21,11 @@ Retrieve json array of perpetrator data.
 
 **Parameters:** id
 
+**All victim data**
+
+`GET /api/victims`
+
+Retrieve json array of all victim data
+
+**Parameters:** NONE
+

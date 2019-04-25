@@ -4,6 +4,8 @@
 https://caseclosed.pitchforked.net
 
 ## Release History
+* 0.1.2
+    * Added API resource for all Victims data.
 * 0.1.1
     * Added API resource for all Perpetrators data.
 * 0.1.0

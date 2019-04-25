@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use App\Perpetrator;
 use App\Http\Resources\Perpetrator as PerpetratorResource;
+use App\Victim;
+use App\Http\Resources\Victim as VictimResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,10 @@ Route::get('perpetrator/{id}', function($id) {
 
 Route::get('perpetrators', function() {
     return PerpetratorResource::collection(Perpetrator::all());
+});
+
+Route::get('victims', function() {
+    return VictimResource::collection(Victim::all());
 });
 
 

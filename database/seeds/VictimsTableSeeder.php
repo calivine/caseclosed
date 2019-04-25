@@ -25,8 +25,6 @@ class VictimsTableSeeder extends Seeder
 
         ];
 
-
-
         foreach ($victims as $key => $victimData) {
             $victim = new Victim();
             $victim->first_name = $victimData[0];
