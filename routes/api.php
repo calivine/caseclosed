@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use App\Perpetrator;
-use App\Http\Resources\Perpetrators;
 use App\Http\Resources\Perpetrator as PerpetratorResource;
 
 /*
