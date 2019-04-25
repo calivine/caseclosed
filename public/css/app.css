@@ -45,10 +45,6 @@ form {
     width: 500px;
 }
 
-form.add-input>input {
-    width: 500px;
-}
-
 header {
     display: block;
     margin: 0;
@@ -70,7 +66,7 @@ img {
 input {
     display: block;
     margin-bottom: 15px;
-    width: 250px;
+    width: 400px;
 }
 
 input[type=checkbox] {
@@ -261,6 +257,14 @@ nav li {
 
 .form-container {
     width: 100vw;
+}
+
+.minimal-text-input {
+    background-color: inherit !important;
+    color: #ffff !important;
+    line-height: 26px;
+    font-size: 1.5em;
+    width: 300px;
 }
 
 
