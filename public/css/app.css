@@ -39,7 +39,7 @@ footer {
 /* Form Styles */
 form {
     align-items: start;
-    margin: 25px auto;
+    margin: 0 auto;
     padding: 15px;
     /* Width of form */
     width: 500px;
@@ -257,6 +257,10 @@ nav li {
 .confirm-delete-content {
     margin: 0 auto;
     width: 250px;
+}
+
+.form-container {
+    width: 100vw;
 }
 
 
