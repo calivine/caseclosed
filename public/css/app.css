@@ -10,6 +10,19 @@ body {
     font-weight: normal;
 }
 
+.pageWrapper {
+    position: relative;
+    min-height: 100vh;
+    padding: 5px;
+}
+
+.container {
+    text-align: center;
+    margin: 0 auto;
+    width: 50vw;
+}
+
+
 a, a.nameplate-icon {
     color: #acacac;
     text-decoration: none;
@@ -106,17 +119,6 @@ nav li {
 .footerBody>ul>li {
     display: inline-block;
     padding: 7.5px;
-}
-
-.pageWrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
-.container {
-    text-align: center;
-    margin: 0 auto;
-    width: 50vw;
 }
 
 .aboutContent {
@@ -256,7 +258,8 @@ nav li {
 }
 
 .form-container {
-    width: 100vw;
+    width: calc(100% / 6);
+    margin: 0 auto;
 }
 
 .minimal-text-input {
