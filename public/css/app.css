@@ -278,11 +278,8 @@ nav li {
 }
 
 .minimal-text-input:focus {
-    border-bottom-color: #2779bd;
+    border-color: rgb(40,40,40) rgb(40,40,40) #2779bd;
 }
-
-
-
 
 /* Mobile */
 @media(max-device-width:880px), (max-width: 880px) {

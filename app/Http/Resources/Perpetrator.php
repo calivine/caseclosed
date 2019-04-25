@@ -28,8 +28,7 @@ class Perpetrator extends JsonResource
             'description' => $this->description,
             'criminal_record' => $this->criminal_record,
             'arrest_date' => $this->arrest_date,
-            'date_of_death' => $this->date_of_death,
-            'victims' => VictimResource::collection($this->victims)
+            'date_of_death' => $this->date_of_death
         ];
     }
 }
