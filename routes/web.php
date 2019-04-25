@@ -31,13 +31,15 @@ Route::get('/profile/{title}', 'CaseController@show');
 
 Route::get('/cases', 'CaseController@display');
 
-Route::get('/home', 'CaseController@index');
+// Route::get('/home', 'CaseController@index');
+
+Route::get('/', 'CaseController@index');
 
 # CREATE comment
 Route::get('/messages/create', 'MessageController@create');
 Route::post('/messages', 'MessageController@store');
 
-Route::redirect('/', '/home');
+Route::redirect('/home', '/');
 
 Route::group(['middleware' => 'auth'], function() {
 

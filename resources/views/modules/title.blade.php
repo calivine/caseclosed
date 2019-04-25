@@ -1,1 +1,1 @@
-<a id='header-title-link' href='{{ '/home' }}'><h1 id='header-title'>{{ config('app.name') }}</h1></a>
+<a id='header-title-link' href='{{ '/' }}'><h1 id='header-title'>{{ config('app.name') }}</h1></a>
