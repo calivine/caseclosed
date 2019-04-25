@@ -4,7 +4,7 @@
 
 
 body {
-    background-color: #1C1C1C;
+    background-color: rgb(40,40,40);
     color: #FFF;
     font-family: Helvetica, sans-serif;
     font-weight: normal;
@@ -92,7 +92,6 @@ ul li {
 
 /* Nav Modules */
 nav {
-    background-color: #1C1C1C;
     font-size: .8em;
     display: inline-block;
 }
@@ -282,11 +281,9 @@ nav li {
 @media(max-device-width: 1265px), (max-width: 1265px) and (min-width: 881px) {
     .container {
         width: 100vw;
-        background-color: #1C1C1C;
         padding: 5px;
     }
     .aboutContent {
-        background-color: #1C1C1C;
         padding: 5px;
     }
 
