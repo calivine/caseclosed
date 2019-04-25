@@ -3,10 +3,11 @@
 @section('content')
     <form method='POST' action='{{ route('login') }}'>
         @csrf
-        <label for='email'>{{ __('E-Mail Address') }}</label>
-        <input id='email' class='minimal-text-input' type='email' name='email' value='{{ old('email') }}' required autofocus>
+        <label for='email'>{{ __('Email') }}</label>
+        <input id='email' class='minimal-text-input' type='email' name='email' value='{{ old('email') }}' autofocus>
+
         <label for='password'>{{ __('Password') }}</label>
-        <input id='password' type='password' name='password' required>
+        <input id='password' class='minimal-text-input' type='password' name='password'>
         <input class='form-check-input' type='checkbox' name='remember'
                id='remember' {{ old('remember') ? 'checked' : '' }}>
         <label class='form-check-label' for='remember'>

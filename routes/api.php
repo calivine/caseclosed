@@ -18,10 +18,6 @@ use App\Http\Resources\Perpetrator as PerpetratorResource;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-/*
-Route::get('perpetrators', function() {
-    return new Perpetrators(Perpetrator::all());
-}); */
 
 Route::get('perpetrator/{id}', function($id) {
     return new PerpetratorResource(Perpetrator::find($id));

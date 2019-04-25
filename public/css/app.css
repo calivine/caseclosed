@@ -22,6 +22,26 @@ body {
     width: 50vw;
 }
 
+.aboutContent {
+    text-align: left;
+}
+
+.home-profile {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 38rem;
+}
+
+.profile {
+    width: 76rem;
+    margin: 0;
+}
+
+.cases {
+    padding: 0;
+}
+
+
 
 a, a.nameplate-icon {
     color: #acacac;
@@ -121,24 +141,6 @@ nav li {
     padding: 7.5px;
 }
 
-.aboutContent {
-    text-align: left;
-}
-
-.home-profile {
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 38rem;
-}
-
-.profile {
-    width: 76rem;
-    margin: 0;
-}
-
-.cases {
-    padding: 0;
-}
 
 /* Button Modules */
 .btn {
@@ -175,7 +177,7 @@ nav li {
     border-color: #8DC63F;
     color: white;
     margin: 10px 10px 10px 0;
-    width: 250px;
+    width: 300px;
 }
 
 .btn-login:hover {
@@ -265,10 +267,17 @@ nav li {
 .minimal-text-input {
     background-color: inherit !important;
     color: #ffff !important;
-    line-height: 26px;
-    font-size: 1.5em;
+    padding-top: 10px;
     width: 300px;
+    border-color: rgb(40,40,40) rgb(40,40,40) #ffff;
+    border-width: 0 0 1px;
 }
+
+.minimal-text-input:hover {
+    border-bottom-color: #2779bd;
+}
+
+
 
 
 /* Mobile */
