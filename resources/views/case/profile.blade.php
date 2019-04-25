@@ -16,7 +16,9 @@
                         >
                     @endforeach
                 </header>
-                <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
+                @if($victim->date_of_birth != null)
+                    <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
+                @endif
                 <p>
                     {{ $victim->description }}
                 </p>

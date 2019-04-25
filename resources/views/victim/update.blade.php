@@ -11,7 +11,7 @@
                     <input type='text' autocomplete='off' name='victim_name' id='victim_name' value='{{ $victim->first_name }} {{ $victim->last_name }}'>
 
                     <label for='dob'>Date of Birth:(format:YYYY-MM-DD)</label>
-                    <input type='text' autocomplete='off' name='date_of_birth' id='dob' value='{{ $victim->date_of_birth->format('Y-m-d') }}'>
+                    <input type='text' autocomplete='off' name='date_of_birth' id='dob'>
 
                     <label for='gender'>Gender</label>
                     <select name='gender' id='gender'>
@@ -20,7 +20,7 @@
                     </select>
 
                     <label for='incident_date'>Date of Disappearance/Incident:</label>
-                    <input type='text' autocomplete='off' name='incident_date' id='incident_date' value='{{ $victim->incident_date->format('Y-m-d') }}'>
+                    <input type='text' autocomplete='off' name='incident_date' id='incident_date'>
 
                     <label for='cause_of_death'>Cause of Death:</label>
                     <input type='text' autocomplete='off' name='cause_of_death' id='cause_of_death' value='{{ $victim->cause_of_death }}'>
