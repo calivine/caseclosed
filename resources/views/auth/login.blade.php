@@ -4,7 +4,7 @@
     <form method='POST' action='{{ route('login') }}'>
         @csrf
         <label for='email'>{{ __('Email') }}</label>
-        <input id='email' class='minimal-text-input' type='email' name='email' value='{{ old('email') }}' autofocus>
+        <input id='email' class='minimal-text-input' autocomplete='off' type='email' name='email' value='{{ old('email') }}' autofocus>
 
         <label for='password'>{{ __('Password') }}</label>
         <input id='password' class='minimal-text-input' type='password' name='password'>
