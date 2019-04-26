@@ -5,6 +5,8 @@ use App\Perpetrator;
 use App\Http\Resources\Perpetrator as PerpetratorResource;
 use App\Victim;
 use App\Http\Resources\Victim as VictimResource;
+use App\Image;
+use App\Http\Resources\Image as ImageResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,10 @@ Route::get('perpetrators', function() {
 
 Route::get('victims', function() {
     return VictimResource::collection(Victim::all());
+});
+
+Route::get('images', function() {
+    return ImageResource::collection(Image::all());
 });
 
 

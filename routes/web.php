@@ -26,15 +26,15 @@ Route::get('/debug', function () {
 });
 
 Route::get('/tester', function() {
-    $json = file_get_contents('C:\xampp\htdocs\caseclosed\perpetrators.json');
-
+    $json = file_get_contents('C:\xampp\htdocs\caseclosed\victims.json');
     $json_data = json_decode($json, true);
-    dump($json_data);
-    foreach($json_data['data'] as $perp ) {
-        dump($perp['id']);
-        dump($perp['first_name']);
+
+    foreach($json_data['data'] as $victim) {
+        if($victim['perpetrator_id'] >= 7) {
+            $victim['perpetrator_id'] = $victim['perpetrator_id'] - 2;
+        }
+        dump($victim['perpetrator_id']);
     }
-    die();
 });
 
 Route::view('/about', 'about');
