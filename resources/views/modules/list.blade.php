@@ -2,9 +2,9 @@
 
 @section('content')
     <div class='container'>
-        <ul class='case-list'>
+        <ul>
             @foreach($victims as $victim)
-                <li>
+                <li id='case-list'>
                     <a href='{{'/profile/' . $victim->last_name }}'>
                         {{$victim->first_name}} {{ $victim->last_name }}</a>
                 </li>
