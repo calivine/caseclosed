@@ -22,7 +22,7 @@ class PerpetratorsTableSeeder extends Seeder
             ['Cecil','Stan','Caldwell','1944-11-23','The night of the murders, the Bernhardts had set the table for three, and when police were called to the scene two days later, they found a hamburger casserole still out. The home showed no signs of forced entry.Both Clifford and Linda had suffered blows to the head, and Linda showed signs of strangulation and sexual assault. There were also signs that both were bound at the wrists and ankles at some point, though investigators never found the bindings.',false,null,'2003-12-13']
         ]; */
 
-        $json = file_get_contents('C:\xampp\htdocs\caseclosed\perpetrators.json');
+        $json = file_get_contents('perpetrators.json');
 
         $json_data = json_decode($json, true);
 

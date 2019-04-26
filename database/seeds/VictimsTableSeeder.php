@@ -17,7 +17,7 @@ class VictimsTableSeeder extends Seeder
      * */
     public function run()
     {
-        $json = file_get_contents('C:\xampp\htdocs\caseclosed\victims.json');
+        $json = file_get_contents('victims.json');
         $json_data = json_decode($json, true);
 
 
