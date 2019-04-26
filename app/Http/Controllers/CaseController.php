@@ -38,11 +38,11 @@ class CaseController extends Controller
      */
     public function display()
     {
-        $victim = Victim::orderBy('last_name')->get();
+        $victims = Victim::orderBy('last_name')->paginate(20);
 
-        $victims = $victim->toArray();
-
-        return view('modules.list')->with(['victims' => $victims]);
+        return view('modules.list')->with([
+            'victims' => $victims
+        ]);
     }
 
     /*
