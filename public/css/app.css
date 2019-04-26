@@ -47,6 +47,10 @@ body {
     padding: 0;
 }
 
+.pagination, .page-item {
+    display: inline-block;
+}
+
 
 
 a, a.nameplate-icon {
