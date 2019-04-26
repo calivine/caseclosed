@@ -5,7 +5,8 @@
     <meta charset='utf-8'>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     {{-- CSS global to every page can be loaded here --}}
     <link href='{{ '/css/app.css' }}' rel='stylesheet'>
@@ -14,36 +15,35 @@
     @stack('head')
 </head>
 <body>
-<div class='pageWrapper'>
-    @if(session('alert'))
-        <div class='alert-success'>
-            {{ session('alert') }}
-        </div>
-    @endif
 
-    <header>
-        @include('modules.title')
-        @include('modules.nav')
-    </header>
+@if(session('alert'))
+    <div class='alert-success'>
+        {{ session('alert') }}
+    </div>
+@endif
 
-    @if ($errors->any())
-        <div class='alert-error'>
-            @foreach ($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </div>
-    @endif
+<header>
+    @include('modules.title')
+    @include('modules.nav')
+</header>
 
-    <main>
-        @yield('content')
-    </main>
+@if ($errors->any())
+    <div class='alert-error'>
+        @foreach ($errors->all() as $error)
+            <li>
+                {{ $error }}
+            </li>
+        @endforeach
+    </div>
+@endif
 
-    <footer>
-        @include('modules.footer')
-    </footer>
-</div>
+<main>
+    @yield('content')
+</main>
+
+<footer>
+    @include('modules.footer')
+</footer>
 
 
 {{-- JS global to every page can be loaded here; jQuery included just as an example --}}

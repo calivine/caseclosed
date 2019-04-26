@@ -21,6 +21,7 @@ body {
     color: #FFF;
     font-family: 'Cormorant Garamond', serif;
     font-weight: normal;
+    min-height: 100vh;
 }
 
 p {
@@ -91,12 +92,6 @@ ul, li {
 }
 
 /* Layout Styles */
-.pageWrapper {
-    position: relative;
-    min-height: 100vh;
-    padding: 10px;
-}
-
 .container {
     text-align: center;
     margin: 0 auto;
@@ -316,6 +311,14 @@ nav li {
 
 /* Mobile */
 @media(max-device-width:880px), (max-width: 880px) {
+    header {
+        padding: 0;
+    }
+
+    .title-icon {
+        padding: 0;
+    }
+
     .container {
         padding: 0;
         width: 100vw;
@@ -331,10 +334,6 @@ nav li {
 
     .home-profile>p {
         line-height: 2.25rem;
-    }
-
-    .pageWrapper {
-        padding: 0;
     }
 
     footer {
