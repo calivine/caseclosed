@@ -27,16 +27,26 @@ class PerpetratorsTableSeeder extends Seeder
         $json_data = json_decode($json, true);
 
         foreach($json_data['data'] as $perp) {
+            if($perp['date_of_birth']['date'] != null) {
+                $perp['date_of_birth']['date'] = str_before($perp['date_of_birth']['date'], ' 00:00:00.000000');
+            }
+            if($perp['arrest_date']['date'] != null) {
+                $perp['arrest_date']['date'] = str_before($perp['arrest_date']['date'], ' 00:00:00.000000');
+            }
+            if($perp['date_of_death']['date'] != null) {
+                $perp['date_of_death']['date'] = str_before($perp['date_of_death']['date'], ' 00:00:00.000000');
+            }
+
             $perpetrator = new Perpetrator;
 
             $perpetrator->first_name = $perp['first_name'];
             $perpetrator->middle_name = $perp['middle_name'];
             $perpetrator->last_name = $perp['last_name'];
-            $perpetrator->date_of_birth = str_before($perp['date_of_birth']['date'], ' 00:00:00.000000');
+            $perpetrator->date_of_birth = $perp['date_of_birth']['date'];
             $perpetrator->description = $perp['description'];
             $perpetrator->criminal_record = $perp['criminal_record'];
-            $perpetrator->arrest_date = str_before($perp['arrest_date']['date'], ' 00:00:00.000000');
-            $perpetrator->date_of_death = str_before($perp['date_of_death']['date'], ' 00:00:00.000000');
+            $perpetrator->arrest_date = $perp['arrest_date']['date'];
+            $perpetrator->date_of_death = $perp['date_of_death']['date'];
 
             $perpetrator->save();
         }

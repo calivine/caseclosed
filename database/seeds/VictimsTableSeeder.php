@@ -22,6 +22,12 @@ class VictimsTableSeeder extends Seeder
 
 
         foreach($json_data['data'] as $victim) {
+            if($victim['date_of_birth']['date'] != null) {
+                $victim['date_of_birth']['date'] = str_before($victim['date_of_birth']['date'], ' 00:00:00.000000');
+            }
+            if($victim['incident_date']['date'] != null) {
+                $victim['incident_date']['date'] = str_before($victim['incident_date']['date'], ' 00:00:00.000000');
+            }
             if($victim['perpetrator_id'] >= 7) {
                 $victim['perpetrator_id'] = $victim['perpetrator_id'] - 2;
             }
@@ -29,10 +35,10 @@ class VictimsTableSeeder extends Seeder
             $newVictim->first_name = $victim['first_name'];
             $newVictim->middle_name = $victim['middle_name'];
             $newVictim->last_name = $victim['last_name'];
-            $newVictim->date_of_birth = $victim['date_of_birth'];
+            $newVictim->date_of_birth = $victim['date_of_birth']['date'];
             $newVictim->gender = $victim['gender'];
             $newVictim->cause_of_death = $victim['cause_of_death'];
-            $newVictim->incident_date = $victim['incident_date'];
+            $newVictim->incident_date = $victim['incident_date']['date'];
             $newVictim->location = $victim['location'];
             $newVictim->description = $victim['description'];
             $newVictim->perpetrator_id = $victim['perpetrator_id'];
