@@ -20,15 +20,17 @@ namespace App{
  * @property string $url
  * @property string $type
  * @property string|null $caption
- * @property int $perpetrator_id
- * @property-read \App\Perpetrator $perpetrator
+ * @property int $imageable_id
+ * @property string $imageable_type
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $imageable
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereCaption($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Image wherePerpetratorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereImageableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereImageableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereUrl($value)
@@ -158,18 +160,17 @@ namespace App{
  * @property string $middle_name
  * @property string $last_name
  * @property \Illuminate\Support\Carbon|null $date_of_birth
- * @property int|null $age
  * @property string|null $gender
  * @property string $cause_of_death
  * @property \Illuminate\Support\Carbon|null $incident_date
  * @property string|null $location
  * @property string|null $description
  * @property int $perpetrator_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Image[] $images
  * @property-read \App\Perpetrator $perpetrator
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereAge($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereCauseOfDeath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereDateOfBirth($value)

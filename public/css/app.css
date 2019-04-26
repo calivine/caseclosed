@@ -6,7 +6,7 @@
 body {
     background-color: rgb(40,40,40);
     color: #FFF;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: normal;
 }
 
@@ -30,6 +30,7 @@ body {
     padding: 2rem;
     margin: 0 auto;
     max-width: 38rem;
+    height: 75vh;
 }
 
 .profile {
