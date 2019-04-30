@@ -3,9 +3,9 @@
         @if(Auth::check())
             @foreach(config('app.navAdmin') as $link => $label)
                 @if(Request::is(substr($link, 1)))
-                    <li class='link-selected'>{{ $label }}</li>
+                    <li class='link-selected nav-btn'>{{ $label }}</li>
                 @else
-                    <li><a href='{{ $link }}'>{{ $label }}</a></li>
+                    <li class='nav-btn'><a href='{{ $link }}'>{{ $label }}</a></li>
                 @endif
             @endforeach
         <li>
@@ -17,9 +17,9 @@
         @else
             @foreach(config('app.nav') as $link => $label)
                 @if(Request::is(substr($link, 1)))
-                    <li class='link-selected'>{{ $label }}</li>
+                    <li class='link-selected nav-btn'>{{ $label }}</li>
                 @else
-                    <li><a href='{{ $link }}'>{{ $label }}</a></li>
+                    <li class='nav-btn'><a href='{{ $link }}'>{{ $label }}</a></li>
                 @endif
             @endforeach
         @endif

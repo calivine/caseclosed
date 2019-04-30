@@ -105,8 +105,8 @@ ul, li {
 .home-profile {
     padding: 2rem;
     margin: 0 auto;
-    max-width: 38rem;
-    height: 75vh;
+    max-width: calc(100%/3);
+    min-height: 75vh;
 }
 
 .home-profile>p {
@@ -198,6 +198,17 @@ nav li {
     background: none;
     border-color: white;
     text-decoration: none;
+}
+
+.nav-btn {
+    display: inline-block;
+    width: 82px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.nav-btn:hover {
+    background-color: #4C4C4C;
 }
 
 /* Dashboard nameplate styles */
@@ -326,7 +337,7 @@ nav li {
     }
 
     .home-profile {
-        width: 100vw;
+        max-width: 100vw;
         padding: 30px 20px;
         font-size:2.25rem;
         height: 100%;
@@ -348,15 +359,21 @@ nav li {
         padding: 5px;
     }
     .aboutContent {
-        padding: 5px;
+        padding: 10px;
     }
 
+    .home-profile {
+        max-width: 100vw;
+        width: 100%;
+        padding: calc(10%);
+    }
 }
 
 /* Large Size */
 @media(min-device-width: 1266px), (min-width: 1266px) {
 
 }
+
 
 
 

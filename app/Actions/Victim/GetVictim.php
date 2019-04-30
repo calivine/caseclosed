@@ -8,7 +8,17 @@ class GetVictim
 {
     public function __construct()
     {
-        $victim = Victim::all()->random();
+        // $victim = Victim::all()->random();
+
+        // $victims = Victim::all();
+        $homepageVictimPool = collect();
+        foreach(Victim::all() as $victim) {
+            if (!is_null($victim->description)) {
+                $homepageVictimPool = $homepageVictimPool->push($victim);
+            }
+        }
+
+        $victim = $homepageVictimPool->random();
 
         $profileImage = $victim->images->first();
 
