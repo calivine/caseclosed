@@ -12,6 +12,7 @@ class GetVictim
 
         // $victims = Victim::all();
         $homepageVictimPool = collect();
+
         foreach(Victim::all() as $victim) {
             if (!is_null($victim->description)) {
                 $homepageVictimPool = $homepageVictimPool->push($victim);
