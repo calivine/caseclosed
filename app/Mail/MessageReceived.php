@@ -16,7 +16,7 @@ class MessageReceived extends Mailable
      *
      * @var Message
      */
-    public $message;
+    protected $message;
 
     /**
      * Create a new message instance.
@@ -36,6 +36,11 @@ class MessageReceived extends Mailable
     public function build()
     {
         return $this->from(config('mail.from.address'))
-                    ->view('emails.messages.received');
+                    ->view('emails.messages.received')
+                    ->with([
+                        'subject' => $this->message->subject,
+                        'body' => $this->message->body,
+                        'email' => $this->message->email
+                    ]);
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Message;
-
+use App\Mail\MessageReceived;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
 {
@@ -35,6 +37,10 @@ class MessageController extends Controller
         $message->body = $request->input('body');
         $message->status = 'unread';
         $message->save();
+
+
+
+        Mail::to(['caloggero.a@gmail.com', 'katelkilleen@gmail.com'])->send(new MessageReceived($message));
 
         return redirect('home')->with([
             'alert' => 'Comment Submitted.'

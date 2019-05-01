@@ -211,6 +211,12 @@ nav li {
     background-color: #4C4C4C;
 }
 
+.btn-link {
+    height: 75px;
+    font-size: 1.5rem;
+    padding-top: 30px;
+}
+
 /* Dashboard nameplate styles */
 .nameplate {
     height: 75px;

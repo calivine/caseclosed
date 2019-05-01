@@ -8,7 +8,7 @@
         <label for='email'>Email(Optional, Enter if you want a response):</label>
         <input type='email' autocomplete='off' id='email' name='email'>
         <label for='body'>Question/Comment:</label>
-        <textarea id='body' autocomplete='off' name='body'></textarea>
+        <textarea id='body' autocomplete='off' name='body' cols='54' rows='15'></textarea>
         <button type='submit' class='btn btn-login'>
             Submit
         </button>
