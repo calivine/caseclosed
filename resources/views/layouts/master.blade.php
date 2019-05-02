@@ -17,7 +17,7 @@
 <body>
 
 @if(session('alert'))
-    <div class='alert-success'>
+    <div class='success'>
         {{ session('alert') }}
     </div>
 @endif
@@ -28,7 +28,7 @@
 </header>
 
 @if ($errors->any())
-    <div class='alert-error'>
+    <div class='error'>
         @foreach ($errors->all() as $error)
             <li>
                 {{ $error }}
