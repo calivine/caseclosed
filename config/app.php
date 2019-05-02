@@ -12,7 +12,7 @@ return [
     'navAdmin' => [
         '/about' => 'About',
         '/cases' => 'Cases',
-        '/admin' => 'Admin Tools'
+        '/admin' => 'Tools'
     ],
 
     /*

@@ -20,7 +20,7 @@
                     <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
                 @endif
                 <p>
-                    {{ $victim->description }}
+                    {!! nl2br(e($victim->description)) !!}
                 </p>
             </article>
             <article>
