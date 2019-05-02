@@ -36,6 +36,7 @@ class MessageReceived extends Mailable
     public function build()
     {
         return $this->from(config('mail.from.address'))
+                    ->subject("Message received: " . $this->message->subject)
                     ->view('emails.messages.received')
                     ->with([
                         'subject' => $this->message->subject,

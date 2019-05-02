@@ -30,7 +30,7 @@
                     </h2>
                 </header>
                 <p>
-                    {{ $victim->perpetrator->description }}
+                    {!! nl2br(e($victim->perpetrator->description)) !!}
                 </p>
             </article>
         </section>
