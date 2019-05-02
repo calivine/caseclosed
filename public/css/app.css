@@ -83,7 +83,7 @@
     }
 }@font-face {
   font-family: 'AdlerRegular';
-  src: url("/public/css/vendor/fonts/AdlerRegular.ttf");
+  src: url(/fonts/AdlerRegular.ttf?833c7c919d03d4b5deb92bf681ad922d);
 }
 
 /* Element styles */
