@@ -42,7 +42,7 @@ class MessageController extends Controller
 
         Mail::to(['caloggero.a@gmail.com', 'katelkilleen@gmail.com'])->send(new MessageReceived($message));
 
-        return redirect('home')->with([
+        return redirect('/')->with([
             'alert' => 'Comment Submitted.'
         ]);
     }

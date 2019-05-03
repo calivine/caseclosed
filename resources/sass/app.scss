@@ -134,13 +134,11 @@ ul, li {
 a {
   color: $lightest-grey;
   text-decoration: none;
+
+  &::selection {
+    text-decoration: underline;
+  }
 }
-
-a::selection {
-  text-decoration: underline;
-}
-
-
 
 /* Nav Modules */
 nav {
@@ -178,20 +176,20 @@ nav {
   font-size: 1.313em;
   font-weight: bold;
   border-radius: 4px;
-  transition: all 0.3s ease 0s;
+  transition: all 1s ease 0s;
 }
 
 .btn-primary {
-  background: #8DC63F;
-  border-color: #8DC63F;
+  background: $yellow-green;
+  border-color: $yellow-green;
   color: white;
   width: 250px;
-}
 
-.btn-primary:hover {
-  background: none;
-  border-color: white;
-  text-decoration: none;
+  &:hover {
+    background: none;
+    border-color: white;
+    text-decoration: none;
+  }
 }
 
 .btn-login {
@@ -200,12 +198,12 @@ nav {
   color: white;
   margin: 10px 10px 10px 0;
   width: 300px;
-}
 
-.btn-login:hover {
-  background: none;
-  border-color: white;
-  text-decoration: none;
+  &:hover {
+    background: none;
+    border-color: white;
+    text-decoration: none;
+  }
 }
 
 .nav-btn {
@@ -259,8 +257,11 @@ nav {
 
 /* Alert Styles */
 %alert {
-  margin: 0 auto;
+  margin: 5px auto;
+  padding: 10px;
   height: 50px;
+  text-align: center;
+  font-size: 1.5em;
 }
 
 .error {
@@ -283,11 +284,11 @@ nav {
   padding-top: 12.5px;
   padding-bottom: 12.5px;
   border-radius: 10px;
-}
 
-.title-icon:hover {
-  background-color: $darker-grey;
-  transition: all 1s ease-out;
+  &:hover {
+    background-color: $darker-grey;
+    transition: all 1s ease-out;
+  }
 }
 
 #header-title {

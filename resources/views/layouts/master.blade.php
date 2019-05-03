@@ -16,12 +16,6 @@
 </head>
 <body>
 
-@if(session('alert'))
-    <div class='success'>
-        {{ session('alert') }}
-    </div>
-@endif
-
 <header>
     @include('modules.title')
     @include('modules.nav')
@@ -37,6 +31,12 @@
     </div>
 @endif
 
+@if(session('alert'))
+    <div class='success'>
+        {{ session('alert') }}
+    </div>
+@endif
+
 <main>
     @yield('content')
 </main>
@@ -44,9 +44,6 @@
 <footer>
     @include('modules.footer')
 </footer>
-
-
-
 
 {{-- JS specific to a given page/child view can be included via a stack --}}
 @stack('body')
