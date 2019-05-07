@@ -273,8 +273,8 @@ nav li {
   font-size: 1.313em;
   font-weight: bold;
   border-radius: 4px;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
 }
 
 .btn-primary {
@@ -313,11 +313,6 @@ nav li {
 
 .nav-btn:hover {
   background-color: #404040;
-}
-
-.btn-link {
-  font-size: 1.5rem;
-  height: 100px;
 }
 
 /* Dashboard nameplate styles */
@@ -442,6 +437,48 @@ nav li {
 
 #case-list {
   font-size: 2rem;
+}
+
+.message-btn,
+.donate-btn {
+  border-width: 2px;
+  border-style: solid;
+  display: block;
+  padding: 8px;
+  margin: 0 auto;
+  width: 150px;
+  text-align: center;
+}
+
+.message-btn {
+  border-color: #3490dc;
+  color: #3490dc;
+}
+
+.message-btn:hover {
+  background: rgba(52, 144, 220, 0.3);
+}
+
+._content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: inline;
+  color: inherit;
+}
+
+.donate-btn {
+  border-color: #38c172;
+  color: #38c172;
+}
+
+.donate-btn:hover {
+  background: rgba(56, 193, 114, 0.3);
+}
+
+.about-links {
+  font-size: 1.25em;
+  padding: 15px 0;
 }
 
 /* Mobile */

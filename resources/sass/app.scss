@@ -217,11 +217,6 @@ nav {
   background-color: $darker-grey;
 }
 
-.btn-link {
-  font-size: 1.5rem;
-  height: 100px;
-}
-
 /* Dashboard nameplate styles */
 .nameplate {
   height: 75px;
@@ -338,6 +333,47 @@ nav {
 
 #case-list {
   font-size: 2rem;
+}
+
+%about-btn {
+  border: {
+    width: 2px;
+    style: solid;
+  }
+  display: block;
+  padding: 8px;
+  margin: 0 auto;
+  width: 150px;
+  text-align: center;
+}
+
+.message-btn {
+  @extend %about-btn;
+  border-color: $blue;
+  color: $blue;
+  &:hover {
+    background: rgba(52,144,220,0.3);
+  }
+}
+
+._content {
+  align-items: center;
+  display: inline;
+  color: inherit;
+}
+
+.donate-btn {
+  @extend %about-btn;
+  border-color: $green;
+  color: $green;
+  &:hover {
+    background: rgba(56,193,114,0.3);
+  }
+}
+
+.about-links {
+  font-size: 1.25em;
+  padding: 15px 0;
 }
 
 

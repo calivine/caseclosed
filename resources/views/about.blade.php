@@ -7,28 +7,28 @@
                 <p>Case Closed is creating an archive of murders and missing persons cases solved primarily through DNA
                     evidence</p>
             </div>
-            <div class='row'>
-                <div class='col-1-8 btn-link'>
-                    <a href='{{ '/messages/create' }}'>Message</a>
+            <div class='row about-links'>
+                <div class='col-1-6'>
+                    <a class='message-btn' href='{{ '/messages/create' }}'><div class='_content'>MESSAGE</div></a>
                 </div>
                 <div class='col-1-2'>
-                    <p>If you have any questions, comments, corrections, or find want to report bugs/errors. </p>
+                    If you have any questions, comments, corrections, or find want to report bugs/errors.
                 </div>
             </div>
-            <div class='row'>
-                <div class='col-1-8 btn-link'>
-                    <a href='{{ url('https://www.paypal.me/bytlg') }}'>Donate.</a>
+            <div class='row about-links'>
+                <div class='col-1-6'>
+                    <a class='donate-btn' href='{{ url('https://www.paypal.me/bytlg') }}'><div class='_content'>DONATE</div></a>
                 </div>
                 <div class='col-1-2'>
-                    <p>Want to support the project?</p>
+                    Want to support the project?
                 </div>
             </div>
-            <div class='row'>
-                <div class='col-1-8 btn-link'>
-                    <a href='{{ url('https://github.com/calivine/caseclosed') }}'>Code.</a>
+            <div class='row about-links'>
+                <div class='col-1-6'>
+                    <a class='message-btn' href='{{ url('https://github.com/calivine/caseclosed') }}'><div class='_content'>CODE</div></a>
                 </div>
                 <div class='col-1-2'>
-                    <p>Case Closed is open source.</p>
+                    Case Closed is open source.
                 </div>
             </div>
         </div>
