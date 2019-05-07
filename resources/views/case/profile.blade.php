@@ -16,7 +16,7 @@
                         >
                     @endforeach
                 </header>
-                @if($victim->date_of_birth != null)
+                @if($victim->date_of_birth)
                     <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
                 @endif
                 <p>
@@ -63,9 +63,11 @@
                         @endif
                     </li>
                 @endforeach
-                <li>
-                    Incident date: {{ $victim->incident_date->format('j F, Y') }}
-                </li>
+                @if($victim->incident_date)
+                    <li>
+                        Incident date: {{ $victim->incident_date->format('j F, Y') }}
+                    </li>
+                @endif
                 <li>
                     Cause of death: {{ $victim->cause_of_death }}
                 </li>
