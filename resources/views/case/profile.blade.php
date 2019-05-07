@@ -1,25 +1,25 @@
 @extends('layouts.master')
 
 @section('content')
+    <header>
+        <h1>
+            {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
+        </h1>
+        <div class='image-row profile-image'>
+            @foreach($victim->images as $image)
+                <div class='image-container'>
+                    <img src='{{ $image->url }}'
+                         alt='{{ $image->caption }}'
+                         width='400px'
+                         height='450px'
+                    >
+                </div>
+            @endforeach
+        </div>
+    </header>
     <div class='profile'>
         <section>
             <article>
-                <header>
-                    <h2>
-                        {{ $victim->first_name }} {{ $victim->middle_name }} {{ $victim->last_name }}
-                    </h2>
-                    <div class='image-row'>
-                        @foreach($victim->images as $image)
-                            <div class='image-container'>
-                                <img src='{{ $image->url }}'
-                                     alt='{{ $image->caption }}'
-                                     width='400px'
-                                     height='450px'
-                                >
-                            </div>
-                        @endforeach
-                    </div>
-                </header>
                 @if($victim->date_of_birth)
                     <p>Born: {{ $victim->date_of_birth->format('j F, Y') }}</p>
                 @endif

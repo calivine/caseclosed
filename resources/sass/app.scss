@@ -118,7 +118,13 @@ ul, li {
 }
 
 .profile {
-  padding: 0 30px;
+  margin: 0 auto;
+  width: calc(100%/3);
+  line-height: 2em;
+}
+
+.profile-image {
+  margin-left: calc(100%/4);
 }
 
 .cases {
