@@ -29,9 +29,9 @@
             </article>
             <article>
                 <header>
-                    <h2>
+                    <h1>
                         {{ $victim->perpetrator->first_name }} {{ $victim->perpetrator->last_name }}
-                    </h2>
+                    </h1>
                 </header>
                 <p>
                     {!! nl2br(e($victim->perpetrator->description)) !!}

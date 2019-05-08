@@ -57,6 +57,7 @@ form {
   margin: 0 auto;
   padding: 15px;
   width: 500px;
+  font-size: inherit;
 }
 
 header {
@@ -321,6 +322,7 @@ nav {
 .form-container {
   width: calc(100% / 6);
   margin: 0 auto;
+  min-height: 75vh;
 }
 
 .minimal-text-input {
@@ -330,6 +332,7 @@ nav {
   width: 300px;
   border-color: $darkest-grey $darkest-grey #ffff;
   border-width: 0 0 1px;
+  font-size: inherit;
 }
 
 .minimal-text-input:hover, .minimal-text-input:focus {
@@ -407,6 +410,13 @@ nav {
 
   .home-profile>p {
     line-height: 2.25rem;
+  }
+
+  .profile {
+    width: 100vw;
+    font-size:2.25rem;
+    line-height: 2.25rem;
+    height: 100%;
   }
 
   footer {
