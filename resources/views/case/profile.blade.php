@@ -38,10 +38,14 @@
                 </p>
             </article>
         </section>
-        @foreach($sources as $source)
-            <a href='{{ $source->url }}' target='_blank'>
-                {{ $source->url }}
-            </a>
-        @endforeach
+        <ul>
+            @foreach($sources as $source)
+                <li>
+                    <a href='{{ $source->url }}' target='_blank'>
+                        {{ $source->url }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
     </div>
 @endsection

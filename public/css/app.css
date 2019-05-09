@@ -524,6 +524,14 @@ nav li {
     height: 100%;
   }
 
+  .profile h1 {
+    font-size: 2rem;
+  }
+
+  .profile a {
+    font-size: 1.5rem;
+  }
+
   footer {
     font-size: 1em;
   }
@@ -552,6 +560,14 @@ nav li {
     font-size: 2.25rem;
     line-height: 2.25rem;
     height: 100%;
+  }
+
+  .profile h1 {
+    font-size: 2rem;
+  }
+
+  .profile a {
+    font-size: 1.5rem;
   }
 }
 
