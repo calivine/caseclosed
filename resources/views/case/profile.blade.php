@@ -33,6 +33,17 @@
                         {{ $victim->perpetrator->first_name }} {{ $victim->perpetrator->last_name }}
                     </h1>
                 </header>
+                <div class='image-row profile-image'>
+                    @foreach($victim->perpetrator->images as $image)
+                        <div class='image-container'>
+                            <img src='{{ $image->url }}'
+                                 alt='{{ $image->caption }}'
+                                 width='400px'
+                                 height='450px'
+                            >
+                        </div>
+                    @endforeach
+                </div>
                 <p>
                     {!! nl2br(e($victim->perpetrator->description)) !!}
                 </p>
