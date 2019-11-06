@@ -12,13 +12,22 @@
     "devDependencies": {
         "axios": "^0.18.1",
         "bootstrap": "^4.0.0",
-        "cross-env": "^5.1",
+        "cross-env": "^5.2.1",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
-        "less": "^3.9.0",
+        "less": "^3.10.3",
         "less-loader": "^5.0.0",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
         "vue": "^2.5.17"
+    },
+    "dependencies": {
+        "base": "^3.0.0",
+        "cache-base": "^4.0.0",
+        "cosmiconfig": "^6.0.0",
+        "fstream": "^1.0.12",
+        "mem": "^5.1.1",
+        "set-value": "^3.0.1",
+        "tar": "^5.0.5"
     }
 }
