@@ -410,6 +410,9 @@ nav {
   padding: 15px 0;
 }
 
+#home-profile-name {
+  text-align: center;
+}
 
 /* Mobile */
 @media(max-device-width:880px), (max-width: 880px) {
@@ -430,7 +433,7 @@ nav {
   .home-profile {
     max-width: 100vw;
     padding: 30px 20px;
-    font-size:2.25rem;
+    font-size: 2.25rem;
     height: 100%;
   }
 
