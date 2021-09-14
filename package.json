@@ -31,7 +31,7 @@
         "postcss-load-config": "^2.1.0",
         "postcss-load-options": "^1.2.0",
         "postcss-load-plugins": "^2.3.0",
-        "set-value": "^3.0.1",
+        "set-value": "^4.0.1",
         "tar": "^5.0.5",
         "vue-loader": "^15.7.2"
     }
